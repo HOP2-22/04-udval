@@ -1,0 +1,49 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+}
+.ToDoContainer {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+#addButton {
+  height: 34px;
+  width: 50px;
+  background-color: rgb(51, 122, 183);
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+#inputHeseg {
+  height: 30px;
+  width: 30vw;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.garchig {
+  font-size: 40px;
+}
+.listContainerX {
+  display: flex;
+  flex-direction: column;
+  border: 0.1px solid grey;
+  border-radius: 5px;
+}
+.progress {
+  margin-bottom: 20px;
+}
+.progressContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

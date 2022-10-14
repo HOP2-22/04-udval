@@ -1,0 +1,19 @@
+.comment {
+    font-weight: bold;
+    color: blue;
+}
+.listContainer {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+    width: calc(35vw + 100px);
+    border-bottom: 1px solid grey;
+}
+.chekku {
+    margin: 15px;
+}
+.deleteButton {
+    position: absolute;
+    right: 20px;
+}
