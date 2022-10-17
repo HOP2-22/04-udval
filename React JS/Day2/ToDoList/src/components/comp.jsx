@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/comment.css";
 
 export const List = ({ props, list, setList, index, checked, setChecked }) => {
+  console.log(checked);
   const taskName = props;
   const Delete = () => {
     const changed = list.filter((_, ind) => ind !== index);
@@ -20,7 +21,7 @@ export const List = ({ props, list, setList, index, checked, setChecked }) => {
       <input className="chekku" type="checkbox" onClick={handleClick}></input>
       <div
         className="taskName"
-        style={{ textDecoration: checked[index] ? "line-through" : "none" }}
+        style={{ textDecoration: checked[index] ? "line-through" : "" }}
       >
         {taskName}
       </div>

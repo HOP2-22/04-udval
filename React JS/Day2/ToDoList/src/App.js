@@ -8,7 +8,7 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const enterClick = (event) => {
     if (event.code === "Enter") {
-      setList([...list, inputValue]);
+      setList([...list, { task: inputValue, checked: false }]);
       setChecked([...checked, false]);
       setInputValue("");
     }
@@ -18,6 +18,10 @@ function App() {
   };
   const deleteChecked = () => {
     // setList = setList.filter((x) => !setChecked.has(x));
+    // list.map((el) => console.log(el));
+    // const changed = list.filter((el) => el.checked === false);
+    // setList(changed);
+    // setChecked(checked.map((el) => (el = true)));
   };
   return (
     <div className="ToDoContainer">
@@ -36,7 +40,7 @@ function App() {
         <button
           id="addButton"
           onClick={() => {
-            setList([...list, inputValue]);
+            setList([...list, { task: inputValue, checked: false }]);
             setChecked([...checked, false]);
             setInputValue("");
           }}
@@ -57,7 +61,7 @@ function App() {
         {list.map((el, index) => {
           return (
             <List
-              props={el}
+              props={el.task}
               list={list}
               setList={setList}
               index={index}
