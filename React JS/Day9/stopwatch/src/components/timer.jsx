@@ -1,4 +1,4 @@
 import React from "react";
-export const Timer = () => {
+export const Timer = (props) => {
   return <div></div>;
 };
