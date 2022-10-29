@@ -1,38 +1,51 @@
-.App {
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(4, 2, 33);
+  background: linear-gradient(
+    180deg,
+    rgba(4, 2, 33, 1) 19%,
+    rgba(9, 9, 76, 1) 73%
+  );
+}
+.timerContainer {
+  display: flex;
+  flex-direction: row;
+}
+.tsag {
+  font-size: 100px;
+  width: 144px;
+  color: #e0e0ff;
   text-align: center;
+  font-weight: 800;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.temdeg {
+  font-size: 100px;
+  color: #e0e0ff;
+  font-weight: 800;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.stopwatchContainer {
+  margin-top: -200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+button {
+  border: 5px solid #e0e0ff;
+  background-color: transparent;
+  color: #e0e0ff;
+  width: 150px;
+  height: 50px;
+  font-size: 25px;
+  margin: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.resetButton {
+  border: 5px solid #e0e0ff;
+  background-color: transparent;
+  color: #e0e0ff;
+  width: 150px;
+  height: 50px;
+  font-size: 25px;
 }
