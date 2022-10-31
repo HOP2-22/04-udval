@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f7fa;
+  width: 100vw;
+}
+span {
+  font-family: "Mulish", sans-serif;
+  color: #fff;
+}
+.secOneBgPic {
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+}
+.upperPartContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  align-items: center;
+}
+.secOneUppersContainer {
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.secOneUppersTeam {
+  font-weight: 800;
+  font-size: 30px;
+}
+.secOneUppersTeamdot {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0bbef2;
+}
+.secOneTeamContainer {
+  width: 40vw;
+  margin-left: 100px;
+  justify-content: left;
+}
+.secOneUppers {
+  margin: 15px;
+  width: 100px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.secOneGetAccess {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 30px;
+  opacity: 0.52;
+  width: 120px;
+}
+.secOneInfoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+.secOneFirst {
+  font-size: 48px;
+  font-weight: 800;
+}
+.secOneSec {
+  font-size: 18px;
+  font-weight: 700;
+}
+.secOneButton {
+  background-color: #0bbef2;
+  border-radius: 2px;
+  color: #fff;
+  border: none;
+  width: 150px;
+  height: 35px;
+  box-sizing: border-box;
+  font-size: 8px;
+  font-weight: 700;
+  margin-left: 20px;
+}
+.secOneInput {
+  border: 2px solid #bbc8d4;
+  border-radius: 2px;
+  width: 22vw;
+  height: 35px;
+  box-sizing: border-box;
+}
+.secOneEmailContainer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.secTwoContainer {
+  width: 100vw;
+}
