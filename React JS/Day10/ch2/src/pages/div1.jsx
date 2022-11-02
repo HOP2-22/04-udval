@@ -4,19 +4,8 @@ import bgPicture from "../assets/images/divOneBackground.jpg";
 export const Section1 = () => {
   return (
     <div className="secOneContainer">
-      <img src={bgPicture} alt="divOneBg" className="secOneBgPic" />
-      <div className="upperPartContainer">
-        <div className="secOneTeamContainer">
-          <span className="secOneUppersTeam">team</span>
-          <span className="secOneUppersTeamdot">.</span>
-        </div>
-        <div className="secOneUppersContainer">
-          <span className="secOneUppers">Products</span>
-          <span className="secOneUppers">Services</span>
-          <span className="secOneUppers">Contact</span>
-          <span className="secOneUppers">Log in</span>
-          <button className="secOneGetAccess">Get Access</button>
-        </div>
+      <div className="bgImageContainer">
+        <img src={bgPicture} alt="divOneBg" className="secOneBgPic" />
       </div>
       <div className="secOneInfoContainer">
         <span className="secOneFirst">

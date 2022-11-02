@@ -5,8 +5,12 @@ import { LearnMore } from "../components/Learnmore";
 export const Section2 = () => {
   return (
     <div className="secTwoContainer">
-      <LearnMore />
-      <img src={Sec2pic} alt="sec2photo" />
+      <div className="sec2LMcontainer">
+        <LearnMore />
+      </div>
+      <div className="sec2photoContainer">
+        <img src={Sec2pic} alt="sec2photo" className="sec2photo" />
+      </div>
     </div>
   );
 };

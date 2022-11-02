@@ -1,13 +1,25 @@
 import "./App.css";
-import { Section1 } from "./pages/div1";
-import { Section2 } from "./pages/div2";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home, Products } from "./pages";
+import { Layout } from "./layout/layout";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
+import GetAccess from "./pages/GetAccess";
 
 function App() {
   return (
-    <div>
-      <Section1 />
-      <Section2 />
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/Services" element={<Services />} />
+          <Route path="/Contacts" element={<Contact />} />
+          <Route path="/GetAccess" element={<GetAccess />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
