@@ -1,9 +1,9 @@
 import React from "react";
-import { Section1 } from "../pages/div1";
-import { Section2 } from "../pages/div2";
-import { Section3 } from "../pages/div3";
-import { Section4 } from "../pages/div4";
-import { Section5 } from "../pages/div5";
+import { Section1 } from "../components/Section1";
+import { Section2 } from "../components/Section2";
+import { Section3 } from "../components/Section3";
+import { Section4 } from "../components/Section4";
+import { Section5 } from "../components/Section5";
 export const Home = () => {
   return (
     <>

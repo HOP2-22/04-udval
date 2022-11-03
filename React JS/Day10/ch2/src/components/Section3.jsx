@@ -1,5 +1,5 @@
 import React from "react";
-import { LearnMore } from "../components/Learnmore";
+import { LearnMore } from "./Learnmore";
 import Sec3pic from "../assets/images/divThree.png";
 
 export const Section3 = () => {

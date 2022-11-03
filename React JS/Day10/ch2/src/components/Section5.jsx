@@ -1,5 +1,5 @@
 import React from "react";
-import { UserFeedback } from "../components/div5feedback";
+import { UserFeedback } from "./UserFeedback";
 
 export const Section5 = () => {
   const cardData = [

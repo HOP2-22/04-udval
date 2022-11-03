@@ -1,6 +1,6 @@
 import React from "react";
 import Sec2pic from "../assets/images/divTwo.png";
-import { LearnMore } from "../components/Learnmore";
+import { LearnMore } from "./Learnmore";
 
 export const Section2 = () => {
   return (

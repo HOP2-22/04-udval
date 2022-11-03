@@ -27,7 +27,7 @@ span {
 }
 .bgImageContainer {
   width: 100vw;
-  height: 70vh;
+  height: 100vh;
   overflow: hidden;
   position: absolute;
 }
@@ -40,7 +40,7 @@ span {
 }
 .secOneContainer {
   width: 100vw;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,6 +78,10 @@ span {
   margin-right: 30px;
   opacity: 0.52;
   width: 120px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .secOneInfoContainer {
   display: flex;
@@ -121,7 +125,7 @@ span {
 }
 .secTwoContainer {
   width: 100vw;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -171,7 +175,7 @@ span {
 }
 .secThreeContainer {
   width: 100vw;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -304,7 +308,7 @@ span {
 }
 .secFiveContaianer {
   width: 100vw;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
