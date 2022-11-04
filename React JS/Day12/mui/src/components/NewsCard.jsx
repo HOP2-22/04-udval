@@ -18,7 +18,7 @@ export default function NewsCard() {
           There are times when our work impacts us deeply — sometimes in ways we
           neither acknowledge nor understand
         </Typography>
-        <Box>
+        <Box sx={{}}>
           <img
             alt="pfp"
             width={"50px"}
