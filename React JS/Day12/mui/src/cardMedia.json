@@ -1,0 +1,62 @@
+[
+  {
+    "CardContentHeader": "The Emotional Toll of Being in UX",
+    "CardContentBody": "There are times when our work impacts us deeply - sometimes in ways we neither acknowledge nor understand",
+    "CardContentName": "Wade Warren",
+    "Image": "https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg"
+  },
+  {
+    "CardContentHeader": "10 secret tips for managing a team remotely",
+    "CardContentBody": "Our latest updates and blogs about managing your team Our latest updates and blogs about managing your team",
+    "CardContentName": "Bessie Cooper",
+    "Image": "https://filmdaily.co/wp-content/uploads/2020/08/miakhalifaimage_lede.jpg"
+  },
+  {
+    "CardContentHeader": "What Ever Happened to Steampunk?",
+    "CardContentBody": "How the iPhone popularized steampunk… and how the iPhone killed it off",
+    "CardContentName": "Bessie Cooper",
+    "Image": "https://images.unsplash.com/photo-1610878180933-123728745d22?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FuYWRhJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+  },
+  {
+    "CardContentHeader": "The 2020 Guide for White Men in Tech",
+    "CardContentBody": "How to use centuries of unfair advantage to make the world a more equal place",
+    "CardContentName": "Courtney Henry",
+    "Image": "https://media.architecturaldigest.com/photos/56b524de4ac3d842677b9ac0/master/w_2323,h_1548,c_limit/home-office-01.jpg"
+  },
+  {
+    "CardContentHeader": "Why Are Women Still Behind in the Design World?",
+    "CardContentBody": "It’s 2020, but women designers still face lower pay and less opportunity. What gives?",
+    "CardContentName": "Darlene Robert",
+    "Image": "https://i1.wp.com/hr-gazette.com/wp-content/uploads/2018/10/bigstock-196164373.jpg?fit=1600%2C928&ssl=1"
+  },
+  {
+    "CardContentHeader": "The Ultimate Guide to Becoming a Great Designer",
+    "CardContentBody": "Our latest updates and blogs about managing your team Our latest updates and blogs about managing your team",
+    "CardContentName": "Leslie Alexander",
+    "Image": "https://flxt.tmsimg.com/assets/p15123950_b_h9_aa.jpg"
+  },
+  {
+    "CardContentHeader": "Data-Driven Design is Killing Our Instincts",
+    "CardContentBody": "Our latest updates and blogs about managing your team Our latest updates and blogs about managing your team",
+    "CardContentName": "Eleanor Pena",
+    "Image": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-iPhone-14-Plus-hero-220907_Full-Bleed-Image.jpg.large.jpg"
+  },
+  {
+    "CardContentHeader": "Finding the Blank Spots in Big Data",
+    "CardContentBody": "Artists and designers are working to address a major problem for marginalized communities in the data economy: ‘If the data does not exist…",
+    "CardContentName": "Jane Cooper",
+    "Image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrOxapm_KQ3U7GCh6owA58P94G4YIddZNKmfuMKMl7vA&s"
+  },
+  {
+    "CardContentHeader": "3 Lessons We Learned From Rebranding Gusto",
+    "CardContentBody": "You might not know the music, but designers have certainly taken notice of this small but visceral movement from the late ’80s",
+    "CardContentName": "Jenny Wilson",
+    "Image": "data:image/jpeg;base64,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"
+  },
+  {
+    "CardContentHeader": "The Emotional Toll of Being in UX",
+    "CardContentBody": "There are times when our work impacts us deeply - sometimes in ways we neither acknowledge nor understand",
+    "CardContentName": "Jacob Jones",
+    "Image": "https://res.cloudinary.com/dtpgi0zck/image/upload/s--fMAvJ-9u--/c_fit,h_580,w_860/v1/EducationHub/photos/sun-blasts-a-m66-flare.jpg"
+  }
+]

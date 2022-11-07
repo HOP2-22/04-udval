@@ -1,12 +1,12 @@
 import * as React from "react";
 import Header from "./components/Header";
-import NewsCard from "./components/NewsCard";
+import { PageOne } from "./pages/PageOne";
 
 export const App = () => {
   return (
     <div>
       <Header />
-      <NewsCard />
+      <PageOne />
     </div>
   );
 };
