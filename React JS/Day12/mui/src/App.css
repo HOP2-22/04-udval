@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+}
+.secOneUppersTeam {
+  font-weight: 800;
+  font-size: 30px;
+  color: #fff;
+}
+.secOneUppersTeamdot {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0bbef2;
+}
+.footerContainer {
+  background-color: #252b3b;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 50px;
+}
+.footerContainerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 85vw;
+  margin: 50px;
+}
+.footerDivOne {
+  flex: 1;
+}
+.footerDivTwo {
+  flex: 1;
+}
+.footerDivThree {
+  flex: 1;
+}
+.footerDivFour {
+  flex: 1;
+}
+.footerDivFive {
+  flex: 1.5;
+}
+.footerContents {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  margin: 5px;
+}
+.footerHeaders {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.footerInputHeader {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+}
+.footerInputHeader {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+}

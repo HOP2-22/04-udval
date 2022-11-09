@@ -1,4 +1,6 @@
 import * as React from "react";
+import "./App.css";
+import { Footer } from "./components/Footer";
 import Header from "./components/Header";
 import { PageOne } from "./pages/PageOne";
 
@@ -7,6 +9,7 @@ export const App = () => {
     <div>
       <Header />
       <PageOne />
+      <Footer />
     </div>
   );
 };

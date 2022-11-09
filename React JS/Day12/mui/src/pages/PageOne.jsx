@@ -7,10 +7,16 @@ export const PageOne = () => {
   return (
     <div>
       <Container>
-        <Typography sx={{ fontSize: "48px", fontWeight: 800 }}>
+        <Typography
+          sx={{
+            fontSize: "48px",
+            fontWeight: 800,
+            margin: "20px 0px 20px 0px",
+          }}
+        >
           Blog posts
         </Typography>
-        <Typography sx={{ color: "GrayText" }}>
+        <Typography sx={{ color: "GrayText", margin: "0px 0px 30px 0px" }}>
           Our latest updates and blogs about managing your team
         </Typography>
         <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={4}>
