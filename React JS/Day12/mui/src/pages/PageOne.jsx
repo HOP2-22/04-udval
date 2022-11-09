@@ -21,15 +21,12 @@ export const PageOne = () => {
         </Typography>
         <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={4}>
           {media.map(
-            ({
-              CardContentHeader,
-              CardContentBody,
-              CardContentName,
-              Image,
-            }) => {
-              console.log(CardContentHeader);
+            (
+              { CardContentHeader, CardContentBody, CardContentName, Image },
+              index
+            ) => {
               return (
-                <Grid item xs={4}>
+                <Grid item xs={4} key={index}>
                   <NewsCard
                     CardContentBody={CardContentBody}
                     CardContentHeader={CardContentHeader}
