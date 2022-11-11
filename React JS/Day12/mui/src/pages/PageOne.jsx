@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import NewsCard from "../components/NewsCard";
 import media from "../cardMedia.json";
 import { Container } from "@mui/system";
+import { ColorModeContext } from "../ThemeContext/ThemeContext";
+import { useContext } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+const instance = axios.create({
+  baseURL: "https://dummyapi.io/data/v1/post",
+  headers: { "app-id": "636e0d6642c1f665f684f489" },
+});
 export const PageOne = () => {
+  const [post, setPost] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const res = await instance.get("/");
+        setPost(res.data.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+      setLoading(false);
+    };
+    fetchPosts();
+  }, []);
+  console.log(post);
+  const { theme } = useContext(ColorModeContext);
   return (
     <div>
       <Container>
         <Typography
           sx={{
-            fontSize: "48px",
+            fontSize: theme === "dark" ? "1000px" : "48px",
             fontWeight: 800,
             margin: "20px 0px 20px 0px",
           }}
