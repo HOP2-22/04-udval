@@ -78,7 +78,11 @@ export default function Header() {
             <Typography
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1, color: "black", fontSize: "30px" }}
+              sx={{
+                flexGrow: 1,
+                fontSize: "30px",
+                color: theme === "dark" ? "black" : "white",
+              }}
             >
               team.
             </Typography>
