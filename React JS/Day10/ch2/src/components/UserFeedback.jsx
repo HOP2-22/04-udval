@@ -1,22 +1,32 @@
+import { Rating } from "@mui/material";
+import { useContext } from "react";
+import { ColorModeContext } from "../ThemeContext/ThemeContext";
 export const UserFeedback = (props) => {
+  const { theme } = useContext(ColorModeContext);
   const { starNumber, comment, avatar, name } = props;
-  const star = ["⭐️", "⭐️", "⭐️", "⭐️", "⭐️"];
-  star.length = starNumber;
-  // ★☆]
   return (
     <div className="fbContainer">
       <div className="starContainer">
-        {/* {star.map((element, index) => (
-            <div key={index}>{element}</div>
-          ))} */}
-        {new Array(5).fill(0).map((_, index) => (
-          <div key={index}>{starNumber >= index + 1 ? "★" : "☆"}</div>
-        ))}
+        <Rating name="read-only" value={starNumber} readOnly />
       </div>
-      <div className="commentContainer">{comment}</div>
+      <div
+        className="commentContainer"
+        style={{
+          color: theme === "dark" ? "black" : "white",
+        }}
+      >
+        {comment}
+      </div>
       <div className="userprofileContainer">
         <img alt="profileImage" className="profileImage" src={avatar} />
-        <div className="userFullName">{name}</div>
+        <div
+          className="userFullName"
+          style={{
+            color: theme === "dark" ? "black" : "white",
+          }}
+        >
+          {name}
+        </div>
       </div>
     </div>
   );

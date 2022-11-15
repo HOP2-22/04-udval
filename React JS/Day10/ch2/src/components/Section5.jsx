@@ -1,7 +1,10 @@
 import React from "react";
 import { UserFeedback } from "./UserFeedback";
+import { useContext } from "react";
+import { ColorModeContext } from "../ThemeContext/ThemeContext";
 
 export const Section5 = () => {
+  const { theme } = useContext(ColorModeContext);
   const cardData = [
     {
       star: 5,
@@ -38,7 +41,14 @@ export const Section5 = () => {
   ];
   return (
     <div className="secFiveContaianer">
-      <div className="sec5Header">What people say about us</div>
+      <div
+        className="sec5Header"
+        style={{
+          color: theme === "dark" ? "black" : "white",
+        }}
+      >
+        What people say about us
+      </div>
       <div>
         <div className="feedbackContainer">
           {" "}

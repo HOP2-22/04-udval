@@ -6,6 +6,9 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Avatar from "@mui/material/Avatar";
 
+import { useContext } from "react";
+import { ColorModeContext } from "../ThemeContext/ThemeContext";
+
 export default function NewsCard({
   CardContentHeader,
   CardContentBody,
@@ -15,6 +18,7 @@ export default function NewsCard({
   ownerPicture,
   date,
 }) {
+  const { theme } = useContext(ColorModeContext);
   return (
     <Card
       sx={{
@@ -23,14 +27,28 @@ export default function NewsCard({
         minWidth: 300,
         minHeight: 400,
         position: "relative",
+        backgroundColor: theme === "dark" ? "" : "#212121",
       }}
     >
       <CardMedia component="img" alt="img1" height="140" image={Image} />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          sx={{
+            color: theme === "dark" ? "#black" : "white",
+          }}
+        >
           {CardContentHeader}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            color: theme === "dark" ? "#black" : "white",
+          }}
+        >
           {CardContentBody}
         </Typography>
         <Box
@@ -58,11 +76,16 @@ export default function NewsCard({
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                width: "120px",
+                width: "100px",
                 justifyContent: "space-around",
               }}
             >
-              <Typography sx={{ color: "GrayText", fontSize: "12px" }}>
+              <Typography
+                sx={{
+                  color: "GrayText",
+                  fontSize: "12px",
+                }}
+              >
                 {CardContentFirstName}
               </Typography>
               <Typography sx={{ color: "GrayText", fontSize: "12px" }}>

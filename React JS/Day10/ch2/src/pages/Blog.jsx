@@ -58,7 +58,7 @@ export const Blog = () => {
                   CardContentLastName={owner.lastName}
                   Image={image}
                   ownerPicture={owner.picture}
-                  date={publishDate}
+                  date={publishDate.split("T")[0]}
                   key={index}
                 />
               </Grid>
