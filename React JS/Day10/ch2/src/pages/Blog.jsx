@@ -52,7 +52,7 @@ export const Blog = () => {
           {post.map(({ image, text, owner, publishDate, id }, index) => {
             return (
               <Grid item xs={4} key={index}>
-                <Link to={`/Blogs/${id}`}>
+                <Link to={`/Blogs/${id}`} className="noTD">
                   <NewsCard
                     CardContentBody={text}
                     CardContentHeader={text}

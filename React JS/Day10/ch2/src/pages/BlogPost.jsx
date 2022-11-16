@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { ColorModeContext } from "../ThemeContext/ThemeContext";
 import { BlogComment } from "../components/BlogComment";
 import { CommentBoxMine } from "../components/CommentBoxMine";
-export const BlogPost = () => {
+export const BlogPost = (props) => {
   const [inputValue, setInputValue] = useState("");
   const [comments, setComments] = useState([]);
   console.log(comments);
@@ -224,7 +224,7 @@ export const BlogPost = () => {
             color: theme === "dark" ? "black" : "white",
             textAlign: "justify",
             width: "65vw",
-            margin: "50px 0 50px 0",
+            margin: "20px 0 20px 0",
           }}
         >
           <Typography
@@ -257,6 +257,7 @@ export const BlogPost = () => {
             color: theme === "dark" ? "black" : "white",
             textAlign: "justify",
             width: "65vw",
+            height: "200px",
           }}
         >
           <Typography
@@ -272,13 +273,15 @@ export const BlogPost = () => {
               display: "flex",
               flexDirection: "row",
               width: "65vw",
+              marginTop: "20px",
             }}
           >
             <Avatar src={MiniiAvatar} />
             <Box>
               <TextField
-                id="demo-helper-text-aligned-no-helpe"
+                id="outlined-basic"
                 label="Comment"
+                // color="secondary"
                 onChange={(e) => {
                   setInputValue(e.target.value);
                 }}
@@ -289,9 +292,11 @@ export const BlogPost = () => {
                   }
                 }}
                 sx={{
-                  width: "500px",
-                  height: "148px",
+                  width: "calc(65vw - 60px)",
+                  height: "6em",
+                  marginLeft: "20px",
                 }}
+                focused
               />
             </Box>
           </Box>

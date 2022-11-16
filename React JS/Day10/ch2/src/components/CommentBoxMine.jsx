@@ -24,7 +24,7 @@ export const CommentBoxMine = ({
       style={{
         padding: "40px 20px",
         marginTop: "10px",
-        backgroundColor: theme === "dark" ? "white" : "#252525",
+        backgroundColor: theme === "dark" ? "white" : "#212121",
       }}
     >
       <Box

@@ -28,7 +28,6 @@ export default function NewsCard({
         minHeight: 400,
         position: "relative",
         backgroundColor: theme === "dark" ? "" : "#212121",
-        textDecoration: "none",
       }}
     >
       <CardMedia component="img" alt="img1" height="140" image={Image} />
@@ -39,7 +38,6 @@ export default function NewsCard({
           component="div"
           sx={{
             color: theme === "dark" ? "#black" : "white",
-            textDecoration: "none",
           }}
         >
           {CardContentHeader}
@@ -49,7 +47,6 @@ export default function NewsCard({
           color="text.secondary"
           sx={{
             color: theme === "dark" ? "#black" : "white",
-            textDecoration: "none",
           }}
         >
           {CardContentBody}

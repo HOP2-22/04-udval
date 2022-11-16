@@ -68,11 +68,7 @@ export default function Header() {
           boxShadow: "none",
         }}
       >
-        <Container
-        // sx={{
-        //   backgroundColor: theme === "dark" ? "transparent" : "#252525",
-        // }}
-        >
+        <Container>
           <Toolbar
             sx={{
               padding: "0 !important",
@@ -82,6 +78,8 @@ export default function Header() {
               sx={{
                 display: "flex",
                 flexDirection: "row",
+                width: "100vw !important",
+                alignItems: "center",
               }}
             >
               <Link to={"/"} className="secOneTeamContainer">
