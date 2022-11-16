@@ -7,6 +7,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 const instance = axios.create({
   baseURL: "https://dummyapi.io/data/v1/post",
@@ -48,19 +49,21 @@ export const Blog = () => {
           Our latest updates and blogs about managing your team
         </Typography>
         <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={4}>
-          {post.map(({ image, text, owner, publishDate }, index) => {
+          {post.map(({ image, text, owner, publishDate, id }, index) => {
             return (
               <Grid item xs={4} key={index}>
-                <NewsCard
-                  CardContentBody={text}
-                  CardContentHeader={text}
-                  CardContentFirstName={owner.firstName}
-                  CardContentLastName={owner.lastName}
-                  Image={image}
-                  ownerPicture={owner.picture}
-                  date={publishDate.split("T")[0]}
-                  key={index}
-                />
+                <Link to={`/Blogs/${id}`}>
+                  <NewsCard
+                    CardContentBody={text}
+                    CardContentHeader={text}
+                    CardContentFirstName={owner.firstName}
+                    CardContentLastName={owner.lastName}
+                    Image={image}
+                    ownerPicture={owner.picture}
+                    date={publishDate.split("T")[0]}
+                    key={index}
+                  />
+                </Link>
               </Grid>
             );
           })}
