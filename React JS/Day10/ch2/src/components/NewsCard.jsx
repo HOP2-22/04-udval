@@ -67,20 +67,18 @@ export default function NewsCard({
           <Avatar alt="Remy Sharp" src={ownerPicture} />
           <Box
             sx={{
-              width: "220px",
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              justifyContent: "space-around",
               marginLeft: "10px",
+              gap: "5px",
             }}
           >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                width: "100px",
-                justifyContent: "space-around",
+                gap: "5px",
               }}
             >
               <Typography

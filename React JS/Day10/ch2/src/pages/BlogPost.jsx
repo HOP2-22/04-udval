@@ -1,14 +1,18 @@
-import { Avatar, Box, FormControl, Typography } from "@mui/material";
+import { Avatar, Box, TextField, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import MiniiAvatar from "../assets/images/avatarMine.jpg";
-import { Textarea } from "@mui/joy";
 import { useContext } from "react";
 import { ColorModeContext } from "../ThemeContext/ThemeContext";
+import { BlogComment } from "../components/BlogComment";
+import { CommentBoxMine } from "../components/CommentBoxMine";
 export const BlogPost = () => {
+  const [inputValue, setInputValue] = useState("");
+  const [comments, setComments] = useState([]);
+  console.log(comments);
   const { id } = useParams();
   const { theme } = useContext(ColorModeContext);
   const [post, setPost] = useState([]);
@@ -30,7 +34,6 @@ export const BlogPost = () => {
     };
     fetchPosts();
   }, [id]);
-  console.log(post);
   if (loading) {
     return <Loading />;
   }
@@ -52,6 +55,7 @@ export const BlogPost = () => {
           flexDirection: "row",
           alignItems: "center",
           color: theme === "dark" ? "black" : "white",
+          marginTop: "20px",
         }}
       >
         <Avatar src={post?.owner?.picture} />
@@ -120,7 +124,6 @@ export const BlogPost = () => {
       </Box>
       <Box
         sx={{
-          width: "65vw",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -131,7 +134,7 @@ export const BlogPost = () => {
           sx={{
             color: theme === "dark" ? "black" : "white",
             textAlign: "justify",
-            width: "55vw",
+            width: "65vw",
           }}
         >
           If you’re thinking of starting a blog of your own, but just don’t have
@@ -173,7 +176,6 @@ export const BlogPost = () => {
       </Box>
       <Box
         sx={{
-          width: "65vw",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -186,15 +188,20 @@ export const BlogPost = () => {
             textAlign: "justify",
             display: "flex",
             flexDirection: "row",
-            width: "55vw",
+            width: "65vw",
             marginTop: "20px",
+            alignItems: "center",
           }}
         >
           <Avatar src={post?.owner?.picture} />
-          <Box>
+          <Box
+            sx={{
+              marginLeft: "10px",
+            }}
+          >
             <Typography
               sx={{
-                fontSize: "14px",
+                fontSize: "12px",
               }}
             >
               Written by:
@@ -203,8 +210,8 @@ export const BlogPost = () => {
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                fontSize: "21px",
-                gap: "10px",
+                fontSize: "19px",
+                gap: "5px",
               }}
             >
               <Typography>{post?.owner?.firstName}</Typography>
@@ -216,17 +223,40 @@ export const BlogPost = () => {
           sx={{
             color: theme === "dark" ? "black" : "white",
             textAlign: "justify",
-            width: "55vw",
+            width: "65vw",
             margin: "50px 0 50px 0",
           }}
         >
-          Comments
+          <Typography
+            sx={{
+              fontSize: "24px",
+              color: "GrayText",
+            }}
+          >
+            Comments
+          </Typography>
+          <BlogComment />
+          {comments.map((el, index) => {
+            return (
+              <CommentBoxMine
+                commentText={el}
+                pfp={MiniiAvatar}
+                fName="Uda"
+                lName="huurhun"
+                date="just now"
+                key={index}
+                index={index}
+                comments={comments}
+                setComments={setComments}
+              />
+            );
+          })}
         </Box>
         <Box
           sx={{
             color: theme === "dark" ? "black" : "white",
             textAlign: "justify",
-            width: "55vw",
+            width: "65vw",
           }}
         >
           <Typography
@@ -241,19 +271,29 @@ export const BlogPost = () => {
             sx={{
               display: "flex",
               flexDirection: "row",
-              width: "55vw",
+              width: "65vw",
             }}
           >
             <Avatar src={MiniiAvatar} />
-            <FormControl>
-              <Textarea
-                placeholder="Your comment here"
+            <Box>
+              <TextField
+                id="demo-helper-text-aligned-no-helpe"
+                label="Comment"
+                onChange={(e) => {
+                  setInputValue(e.target.value);
+                }}
+                onKeyPress={(e) => {
+                  if (e.code === "Enter") {
+                    setComments([...comments, inputValue]);
+                    setInputValue("");
+                  }
+                }}
                 sx={{
-                  width: "50vw",
+                  width: "500px",
                   height: "148px",
                 }}
               />
-            </FormControl>
+            </Box>
           </Box>
         </Box>
       </Box>
