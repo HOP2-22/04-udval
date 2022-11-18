@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import { Container } from "@mui/system";
 import { Switch } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { useContext } from "react";
@@ -12,6 +12,7 @@ import { ColorModeContext } from "../ThemeContext/ThemeContext";
 
 export default function Header() {
   const { theme, changeTheme } = useContext(ColorModeContext);
+  const navigate = useNavigate();
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
     height: 34,
@@ -60,99 +61,104 @@ export default function Header() {
     },
   }));
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        sx={{
-          backgroundColor: theme === "dark" ? "transparent" : "#252525",
-          boxShadow: "none",
-        }}
-      >
-        <Container>
-          <Toolbar
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: theme === "dark" ? "transparent" : "#252525",
+        boxShadow: "none",
+      }}
+    >
+      <Container>
+        <Toolbar
+          sx={{
+            padding: "0 !important",
+          }}
+        >
+          <Box
             sx={{
-              padding: "0 !important",
+              display: "flex",
+              flexDirection: "row",
+              width: "100vw ",
+              alignItems: "center",
             }}
           >
             <Box
               sx={{
-                display: "flex",
-                flexDirection: "row",
-                width: "100vw !important",
-                alignItems: "center",
+                cursor: "pointer",
+                userSelect: "none",
               }}
+              onClick={() => navigate("/")}
             >
-              <Link to={"/"} className="secOneTeamContainer">
-                <span
-                  className="secOneUppersTeam"
-                  style={{
-                    color: theme === "dark" ? "black" : "white",
-                  }}
-                >
-                  team
-                </span>
-                <span className="secOneUppersTeamdot">.</span>
-              </Link>
-              <div className="secOneUppersContainer">
-                <FormControlLabel
-                  control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-                  checked={theme === "white"}
-                  onChange={() => {
-                    changeTheme();
-                  }}
-                />
-                <Link
-                  to={"/Products"}
-                  className="secOneUppers"
-                  style={{
-                    color: theme === "dark" ? "black" : "white",
-                  }}
-                >
-                  {"Products"}
-                </Link>
-                <Link
-                  to={"/Blogs"}
-                  className="secOneUppers"
-                  style={{
-                    color: theme === "dark" ? "black" : "white",
-                  }}
-                >
-                  {"Blogs"}
-                </Link>
-                <Link
-                  to={"/Contacts"}
-                  className="secOneUppers"
-                  style={{
-                    color: theme === "dark" ? "black" : "white",
-                  }}
-                >
-                  {"Contact"}
-                </Link>
-                <Link
-                  to={"/Login"}
-                  className="secOneUppers"
-                  style={{
-                    color: theme === "dark" ? "black" : "white",
-                  }}
-                >
-                  {"Log In"}
-                </Link>
-                <Link
-                  to={"/GetAccess"}
-                  className="secOneGetAccess"
-                  style={{
-                    color: theme === "dark" ? "black" : "white",
-                    border:
-                      theme === "dark" ? "2px solid black" : "2px solid white",
-                  }}
-                >
-                  {"Get Access"}
-                </Link>
-              </div>
+              <span
+                className="secOneUppersTeam"
+                style={{
+                  color: theme === "dark" ? "black" : "white",
+                }}
+              >
+                teama
+              </span>
+              <span className="secOneUppersTeamdot">.</span>
             </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </Box>
+
+            <div className="secOneUppersContainer">
+              <FormControlLabel
+                control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+                checked={theme === "white"}
+                onChange={() => {
+                  changeTheme();
+                }}
+              />
+              <Link
+                to={"/Products"}
+                className="secOneUppers"
+                style={{
+                  color: theme === "dark" ? "black" : "white",
+                }}
+              >
+                {"Products"}
+              </Link>
+              <Link
+                to={"/Blogs"}
+                className="secOneUppers"
+                style={{
+                  color: theme === "dark" ? "black" : "white",
+                }}
+              >
+                {"Blogs"}
+              </Link>
+              <Link
+                to={"/Contacts"}
+                className="secOneUppers"
+                style={{
+                  color: theme === "dark" ? "black" : "white",
+                }}
+              >
+                {"Contact"}
+              </Link>
+              <Link
+                to={"/Login"}
+                className="secOneUppers"
+                style={{
+                  color: theme === "dark" ? "black" : "white",
+                }}
+              >
+                {"Log In"}
+              </Link>
+              <Link
+                to={"/GetAccess"}
+                className="secOneGetAccess"
+                style={{
+                  color: theme === "dark" ? "black" : "white",
+                  border:
+                    theme === "dark" ? "2px solid black" : "2px solid white",
+                }}
+              >
+                {"Get Access"}
+              </Link>
+            </div>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }

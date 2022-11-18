@@ -37,8 +37,6 @@ span {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  position: absolute;
-  right: 0;
 }
 .secOneContainer {
   width: 100vw;
@@ -321,4 +319,16 @@ span {
   font-style: normal;
   font-weight: 800;
   font-size: 48px;
+}
+a:visited {
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+a::before {
+  text-decoration: none;
+}
+a::after {
+  text-decoration: none;
 }

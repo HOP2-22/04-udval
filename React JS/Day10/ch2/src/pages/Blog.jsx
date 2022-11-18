@@ -36,16 +36,24 @@ export const Blog = () => {
   }
   return (
     <div>
-      <Container sx={{ backgroundColor: theme === "dark" ? "#" : "" }}>
+      <Container sx={{ marginBottom: "20px" }}>
         <Typography
           sx={{
             fontWeight: 800,
+            fontSize: "48px",
             margin: "20px 0px 20px 0px",
+            color: theme === "dark" ? "black" : "white",
           }}
         >
           Blog posts
         </Typography>
-        <Typography sx={{ color: "GrayText", margin: "0px 0px 30px 0px" }}>
+        <Typography
+          sx={{
+            color: "GrayText",
+            fontSize: "18px",
+            margin: "0px 0px 30px 0px",
+          }}
+        >
           Our latest updates and blogs about managing your team
         </Typography>
         <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={4}>

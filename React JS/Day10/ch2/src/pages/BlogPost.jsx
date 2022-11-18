@@ -134,7 +134,6 @@ export const BlogPost = (props) => {
           sx={{
             color: theme === "dark" ? "black" : "white",
             textAlign: "justify",
-            width: "65vw",
           }}
         >
           If you’re thinking of starting a blog of your own, but just don’t have
@@ -178,8 +177,6 @@ export const BlogPost = (props) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
         }}
       >
         <Box
@@ -188,7 +185,7 @@ export const BlogPost = (props) => {
             textAlign: "justify",
             display: "flex",
             flexDirection: "row",
-            width: "65vw",
+
             marginTop: "20px",
             alignItems: "center",
           }}
@@ -223,7 +220,7 @@ export const BlogPost = (props) => {
           sx={{
             color: theme === "dark" ? "black" : "white",
             textAlign: "justify",
-            width: "65vw",
+
             margin: "20px 0 20px 0",
           }}
         >
@@ -256,7 +253,7 @@ export const BlogPost = (props) => {
           sx={{
             color: theme === "dark" ? "black" : "white",
             textAlign: "justify",
-            width: "65vw",
+
             height: "200px",
           }}
         >
@@ -272,33 +269,30 @@ export const BlogPost = (props) => {
             sx={{
               display: "flex",
               flexDirection: "row",
-              width: "65vw",
               marginTop: "20px",
             }}
           >
             <Avatar src={MiniiAvatar} />
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Comment"
-                // color="secondary"
-                onChange={(e) => {
-                  setInputValue(e.target.value);
-                }}
-                onKeyPress={(e) => {
-                  if (e.code === "Enter") {
-                    setComments([...comments, inputValue]);
-                    setInputValue("");
-                  }
-                }}
-                sx={{
-                  width: "calc(65vw - 60px)",
-                  height: "6em",
-                  marginLeft: "20px",
-                }}
-                focused
-              />
-            </Box>
+            <TextField
+              id="outlined-basic"
+              label="Comment"
+              value={inputValue}
+              // color="secondary"
+              onChange={(e) => {
+                setInputValue(e.target.value);
+              }}
+              onKeyPress={(e) => {
+                if (e.code === "Enter") {
+                  setComments([...comments, inputValue]);
+                  setInputValue("");
+                }
+              }}
+              sx={{
+                marginLeft: "20px",
+                width: "calc(100% - 60px)",
+              }}
+              focused
+            />
           </Box>
         </Box>
       </Box>
