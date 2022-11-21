@@ -95,7 +95,7 @@ export default function Header() {
                   color: theme === "dark" ? "black" : "white",
                 }}
               >
-                teama
+                team
               </span>
               <span className="secOneUppersTeamdot">.</span>
             </Box>
