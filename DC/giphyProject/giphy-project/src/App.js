@@ -5,6 +5,7 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  Grid,
   TextField,
   Typography,
 } from "@mui/material";
@@ -37,56 +38,86 @@ function App() {
   //   return <Loading />;
   // }
   return (
-    <Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          gap: "300px",
-        }}
-      >
-        <Typography>Giphy Search</Typography>
+    <Box
+      sx={{
+        marginLeft: "20px",
+        marginBottom: "20px",
+      }}
+    >
+      <Grid>
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
+            width: "100%",
+            alignItems: "center",
+            gap: "20vw",
+            fontFamily: "Helvetica Neue",
           }}
         >
-          <TextField
-            id="outlined-basic"
-            label="Outlined"
-            variant="outlined"
-            onChange={(e) => {
-              setInput(e.target.value);
-            }}
-            value={input}
-            onKeyPress={(e) => {
-              if (e.code === "Enter") {
-                setInputValue(input);
-                setInput("");
-              }
-            }}
-          />
-          <Button
-            onClick={() => {
-              setInputValue(input);
+          <Typography
+            sx={{
+              fontSize: "50px",
             }}
           >
-            Search
-          </Button>
+            GIPHY SEARCH
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <TextField
+              id="outlined-basic"
+              label="search here lol"
+              variant="outlined"
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+              value={input}
+              onKeyPress={(e) => {
+                if (e.code === "Enter") {
+                  setInputValue(input);
+                  setInput("");
+                }
+              }}
+              sx={{
+                width: "300px",
+              }}
+            />
+            <Button
+              variant="contained"
+              onClick={() => {
+                setInputValue(input);
+              }}
+            >
+              Search
+            </Button>
+          </Box>
         </Box>
-      </Box>
-      <Box>
+      </Grid>
+
+      <Grid
+        container
+        sx={{
+          gap: "20px",
+          marginTop: "20px",
+        }}
+      >
         {loading ? (
           <Loading />
         ) : (
-          giphy.map(({ images, title }) => {
+          giphy.map(({ images, title }, index) => {
             return (
-              <Box>
-                <Card sx={{ maxWidth: 345 }}>
+              <Box
+                sx={{
+                  height: "400",
+                  width: "345px",
+                }}
+                key={index}
+              >
+                <Card sx={{ maxWidth: 345, height: "400px" }}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -105,7 +136,7 @@ function App() {
             );
           })
         )}
-      </Box>
+      </Grid>
     </Box>
   );
 }
