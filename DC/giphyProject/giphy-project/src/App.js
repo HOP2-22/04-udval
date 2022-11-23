@@ -12,31 +12,40 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "./components/Loading";
+import { Container } from "@mui/system";
 
 function App() {
   const [input, setInput] = useState("");
   const [giphy, setGiphy] = useState([]);
-  const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
+  const fetchGiphy = async () => {
+    try {
+      const res = await axios.get(
+        `https://api.giphy.com/v1/gifs/search?api_key=XCpZez2zEKlleZn3jDzw6PMRQIHnBu8t&q=${input}&limit=20&offset=0&rating=g&lang=en`
+      );
+      setGiphy(res);
+      console.log(res);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   useEffect(() => {
-    const fetchGiphy = async () => {
-      const instance = axios.create({
-        baseURL: `https://api.giphy.com/v1/gifs/search?api_key=XCpZez2zEKlleZn3jDzw6PMRQIHnBu8t&q=${inputValue}&limit=20&offset=0&rating=r&lang=en`,
-      });
+    const resInterceptor = (request) => {
       setLoading(true);
-      try {
-        const res = await instance.get("/");
-        setGiphy(res.data.data);
-      } catch (error) {
-        console.log(error.message);
-      }
-      setLoading(false);
+      console.log(request);
+      return request;
     };
-    fetchGiphy();
-  }, [inputValue]);
-  // if (loading) {
-  //   return <Loading />;
-  // }
+    const interceptor = axios.interceptors.request.use(resInterceptor);
+    return () => axios.interceptors.request.eject(interceptor);
+  }, []);
+  useEffect(() => {
+    const resInterceptor = (response) => {
+      setLoading(false);
+      return response.data.data;
+    };
+    const interceptor = axios.interceptors.response.use(resInterceptor);
+    return () => axios.interceptors.response.eject(interceptor);
+  }, []);
   return (
     <Box
       sx={{
@@ -44,7 +53,7 @@ function App() {
         marginBottom: "20px",
       }}
     >
-      <Grid>
+      <Container>
         <Box
           sx={{
             display: "flex",
@@ -78,8 +87,7 @@ function App() {
               value={input}
               onKeyPress={(e) => {
                 if (e.code === "Enter") {
-                  setInputValue(input);
-                  setInput("");
+                  fetchGiphy();
                 }
               }}
               sx={{
@@ -89,20 +97,21 @@ function App() {
             <Button
               variant="contained"
               onClick={() => {
-                setInputValue(input);
+                fetchGiphy();
               }}
             >
               Search
             </Button>
           </Box>
         </Box>
-      </Grid>
-
+      </Container>
       <Grid
         container
         sx={{
           gap: "20px",
           marginTop: "20px",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         {loading ? (
