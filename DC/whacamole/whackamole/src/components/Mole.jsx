@@ -3,7 +3,7 @@ import UpperBack from "../assets/UpperBack.png";
 import LowerBack from "../assets/LowerBack.png";
 import MolePic from "../assets/rat.png";
 import { Box } from "@mui/material";
-export const Mole = ({ active }) => {
+export const Mole = ({ active, setScore, generate, started }) => {
   return (
     <Box
       sx={{
@@ -37,7 +37,13 @@ export const Mole = ({ active }) => {
             bottom: active ? "50px" : "-18px",
             zIndex: "1",
             left: "18px",
-            transition: "bottom 200ms",
+            transition: "bottom 100ms",
+          }}
+          onClick={(e) => {
+            if (active === true && started === true) {
+              setScore((prevscore) => prevscore + 1);
+              generate();
+            }
           }}
         />
         <img

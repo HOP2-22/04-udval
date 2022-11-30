@@ -1,8 +1,12 @@
-import { Grid, Box, Button } from "@mui/material";
+import { Grid, Box, Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import "./App.css";
 import { Mole } from "./components/Mole";
+
+import { TimerBox } from "./components/TimerBox";
 function App() {
+  const [score, setScore] = useState(0);
+  const [started, setStarted] = useState(false);
   const [rats, setRats] = useState(
     new Array(3).fill(null).map(() => new Array(3).fill(false))
   );
@@ -14,10 +18,11 @@ function App() {
   };
   useEffect(() => {
     const interval = setInterval(() => {
-      generate();
+      if (started) generate();
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [started, score]);
+  console.log(rats);
   return (
     <Box
       sx={{
@@ -29,17 +34,39 @@ function App() {
         justifyContent: "center",
       }}
     >
-      <Grid container rowSpacing={1}>
-        {rats.map((row, index) => (
-          <Grid key={index} item xs={4}>
-            {row.map((rat, ind) => (
-              <Mole active={rat} key={ind} />
-            ))}
-          </Grid>
-        ))}
-      </Grid>
-      <Button color="success" variant="contained">
-        Start
+      <Box>
+        <Typography>{score}</Typography>
+        <TimerBox started={started} setStarted={setStarted} />
+      </Box>
+      <Box
+        sx={{
+          width: "644px",
+        }}
+      >
+        <Grid container rowSpacing={1}>
+          {rats.map((row, index) => (
+            <Grid key={index} item xs={4}>
+              {row.map((rat, ind) => (
+                <Mole
+                  active={rat}
+                  key={ind}
+                  setScore={setScore}
+                  generate={generate}
+                  started={started}
+                />
+              ))}
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+      <Button
+        color="success"
+        variant="contained"
+        onClick={() => {
+          setStarted(!started);
+        }}
+      >
+        {started === true ? "End Game" : "Start Game"}
       </Button>
     </Box>
   );
