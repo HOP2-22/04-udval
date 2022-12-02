@@ -2,13 +2,13 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 export const TimerBox = ({ started, setStarted }) => {
-  const [time, setTime] = useState(60000);
+  const [time, setTime] = useState(30000);
 
   useEffect(() => {
     let interval = null;
     if (time === 0) {
       setStarted(false);
-      setTime(60000);
+      setTime(30000);
     }
     if (started === true) {
       interval = setInterval(() => {
