@@ -22,6 +22,7 @@ export const Card = ({ card, flip, isFlipped }) => {
         transformStyle: "preserve-3d",
         transition: "transform 0.6s",
       }}
+      className="preventSelection"
     >
       <div
         style={{

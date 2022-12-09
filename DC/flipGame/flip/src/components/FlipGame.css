@@ -1,0 +1,29 @@
+div {
+  display: grid;
+}
+.preventSelection {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.resGrid {
+  display: "grid" !important;
+  grid-template-columns: "1fr 1fr 1fr 1fr" !important;
+  gap: "10px";
+}
+img {
+  width: 200px;
+}
+/* @media screen and (max-width: 992px) {
+  .responsiveGrid {
+    display: "grid";
+    grid-template-columns: "1fr 1fr 1fr";
+    gap: "10px";
+  }
+  img {
+    width: 100px;
+  }
+} */

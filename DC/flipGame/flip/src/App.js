@@ -1,77 +1,38 @@
-import { useEffect, useState } from "react";
+// import { ExOne } from "./Lodash/Ex1";
+// import { ExTen } from "./Lodash/Ex10";
+// import { ExEleven } from "./Lodash/Ex11";
+// import { ExTwelve } from "./Lodash/Ex12";
+// import { ExThirteen } from "./Lodash/Ex13";
+// import { ExFourteen } from "./Lodash/Ex14";
+// import { ExTwo } from "./Lodash/Ex2";
+// import { ExThree } from "./Lodash/Ex3";
+// import { ExFour } from "./Lodash/Ex4";
+// import { ExFive } from "./Lodash/Ex5";
+// import { ExSix } from "./Lodash/Ex6";
+// import { ExSeven } from "./Lodash/Ex7";
+// import { ExEight } from "./Lodash/Ex8";
+// import { ExNine } from "./Lodash/Ex9";
 import "./App.css";
-import { Card } from "./components/Card";
+import { FlipGame } from "./components/FlipGame";
 
 function App() {
-  const shapes = ["Heart", "Cloud", "Moon", "Snowflake", "Sun", "SomeGuy"];
-  const [cards, setCards] = useState([]);
-  const generate = () => {
-    let newCards = [...shapes, ...shapes].sort(() => 0.5 - Math.random());
-    setCards(newCards);
-  };
-  useEffect(() => {
-    generate();
-  }, []);
-  const [flipped, setFlipped] = useState(new Array(12).fill(false));
-  const [first, setFirst] = useState(null);
-  const flip = (index) => {
-    setFlipped(flipped.map((f, i) => (i === index ? !f : f)));
-    if (first === null) {
-      setFirst(index);
-      return;
-    }
-    if (cards[first] === cards[index]) {
-      setTimeout(() => {
-        setFirst(null);
-        setCards(cards.map((card, i) => (card === cards[first] ? null : card)));
-      }, 600);
-    } else {
-      setTimeout(() => {
-        setFlipped(new Array(12).fill(false));
-        setFirst(null);
-      }, 600);
-    }
-  };
-  // const [isEnd, setIsEnd] = useState(false);
-  // useEffect(() => {
-  //   if (cards.filter((card) => card == null).length === 0) {
-  //     setIsEnd(true);
-  //   }
-  // });
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-      }}
-    >
-      {cards.filter((card) => card !== null).length === 0 ? (
-        <div>
-          <p>congrats biatch</p>
-          <button onClick={() => generate()}>Restart</button>
-        </div>
-      ) : (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr 1fr",
-            gap: "10px",
-          }}
-        >
-          {cards.map((card, index) => {
-            return (
-              <Card
-                card={card}
-                flip={() => flip(index)}
-                isFlipped={flipped[index]}
-                key={index}
-              />
-            );
-          })}
-        </div>
-      )}
+    <div>
+      {/* <ExOne />
+      <ExTwo />
+      <ExThree />
+      <ExFour />
+      <ExFive />
+      <ExSix />
+      <ExSeven />
+      <ExEight />
+      <ExNine />
+      <ExTen />
+      <ExEleven />
+      <ExTwelve />
+      <ExThirteen />
+      <ExFourteen /> */}
+      <FlipGame />
     </div>
   );
 }
