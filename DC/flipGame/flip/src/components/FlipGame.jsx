@@ -42,10 +42,10 @@ export const FlipGame = () => {
     <div
       style={{
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
         height: "100vh",
       }}
+      className="container"
     >
       {cards.filter((card) => card !== null).length === 0 ? (
         <div
@@ -76,17 +76,33 @@ export const FlipGame = () => {
           </Button>
         </div>
       ) : (
-        <div className="resGrid">
-          {cards.map((card, index) => {
-            return (
-              <Card
-                card={card}
-                flip={() => flip(index)}
-                isFlipped={flipped[index]}
-                key={index}
-              />
-            );
-          })}
+        <div className="gridContainer">
+          <div className="resGrid">
+            {cards.map((card, index) => {
+              return (
+                <Card
+                  index={index}
+                  clicked={first}
+                  card={card}
+                  flip={() => flip(index)}
+                  isFlipped={flipped[index]}
+                />
+              );
+            })}
+          </div>
+          <Button
+            onClick={(e) => {
+              generate();
+              setFlipped(new Array(12).fill(false));
+            }}
+            color="secondary"
+            style={{
+              marginTop: "20px",
+            }}
+            variant="contained"
+          >
+            Generate
+          </Button>
         </div>
       )}
     </div>

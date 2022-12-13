@@ -1,22 +1,21 @@
 import React from "react";
 import CardBack from "../assets/CardBack.png";
-export const Card = ({ card, flip, isFlipped }) => {
+export const Card = ({ card, flip, isFlipped, clicked, index }) => {
   if (!card) {
-    return (
-      <div
-        style={{
-          width: "200px",
-          height: "200px",
-        }}
-      />
-    );
+    return <div className="preventSelection" />;
   }
   return (
     <div
-      onClick={() => flip()}
+      id={index}
+      onClick={() => {
+        console.log(index);
+        if (clicked === index) {
+          return;
+        } else {
+          flip();
+        }
+      }}
       style={{
-        width: "200px",
-        height: "200px",
         position: "relative",
         transform: `rotateY(${isFlipped ? "180deg" : "0deg"})`,
         transformStyle: "preserve-3d",
@@ -37,8 +36,8 @@ export const Card = ({ card, flip, isFlipped }) => {
           alt="front"
           style={{
             width: "100%",
-            borderRadius: "20px",
           }}
+          draggable="false"
         />
       </div>
       <div
@@ -50,12 +49,13 @@ export const Card = ({ card, flip, isFlipped }) => {
         }}
       >
         <img
+          index={index}
           src={`${card}.png`}
           alt="back"
           style={{
             width: "100%",
-            borderRadius: "20px",
           }}
+          draggable="false"
         />
       </div>
     </div>

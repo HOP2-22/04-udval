@@ -5,3 +5,8 @@
   -o-user-select: none;
   user-select: none;
 }
+body {
+  margin: 0;
+  background-color: #faaca8;
+  background-image: linear-gradient(180deg, #ddd6f3 0%, #bbabef 100%);
+}
