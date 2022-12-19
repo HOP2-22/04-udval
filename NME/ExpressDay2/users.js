@@ -4,7 +4,7 @@ let users = [
 ];
 exports.getUsers = (req, res) => {
   res.status(200).json({
-    users: users,
+    status: users,
   });
 };
 exports.createUser = (req, res) => {
