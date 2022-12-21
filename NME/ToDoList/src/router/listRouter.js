@@ -1,15 +1,15 @@
 const express = require("express");
 const {
   getList,
-  createList,
-  deleteList,
-  checkList,
+  addData,
+  updateData,
+  removeData,
 } = require("../controllers/listController");
 const listRouter = express.Router();
 
 listRouter
   .get("/", getList)
-  .post("/", createList)
-  .delete("/", deleteList)
-  .put("/", checkList);
+  .post("/", addData)
+  .delete("/", removeData)
+  .patch("/", updateData);
 module.exports = listRouter;
