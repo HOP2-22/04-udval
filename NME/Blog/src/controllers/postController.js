@@ -6,37 +6,43 @@ exports.getPosts = async (req, res) => {
 };
 exports.createPost = async (req, res) => {
   try {
-    const data = await Posts.create({
-      text: req.body.text,
-      tags: req.body.tags,
-      link: req.body.link,
-      owner: req.body.owner,
-    });
+    const data = await Posts.create(
+      req.body
+      // likes: 0,
+      // publishDate: new Date(),
+    );
     res.send({ message: "successfully posted" });
   } catch (error) {
-    res.status(404).send({ message: "created successfully" });
+    res.status(404).send({ message: error.message });
   }
 };
-// exports.getUserById = async (req, res) => {
-//   const { id } = req.params;
-//   try {
-//     const user = await Users.findById(id);
-//     res.send(user);
-//   } catch (err) {
-//     req.status(500).send({ message: err.message });
-//   }
-// };
-// exports.createUser = async (req, res) => {
-//   try {
-//     const data = await Users.create({
-//       firstName: req.body.firstName,
-//       age: req.body.age,
-//     });
-//     res.send({ message: "created successfully" });
-//   } catch (error) {
-//     res.status(400).send({ message: error.message });
-//   }
-// };
+exports.updatePost = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Posts.findByIdAndUpdate(id, req.body);
+    res.send({ message: "successfully updated" });
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+};
+exports.getPostsById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const post = await Posts.findById(id);
+    res.send(post);
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+};
+exports.deletePost = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Posts.findByIdAndDelete(id);
+    res.send({ message: "successfully deleted" });
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+};
 // exports.updateUser = async (req, res) => {
 //   const { id } = req.params;
 //   console.log(id);
