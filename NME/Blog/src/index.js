@@ -2,6 +2,7 @@ const express = require("express");
 const port = 8000;
 const app = express();
 const mongoose = require("mongoose");
+const commentRouter = require("./router/commentRouter");
 const postRouter = require("./router/postRouter");
 
 app.use(express.json());
@@ -18,6 +19,7 @@ connection.once("open", () => {
 });
 app.use("/", userRouter);
 app.use("/", postRouter);
+app.use("/", commentRouter);
 app.listen(port, () => {
   console.log(`Server Listen: ${port}`);
 });
