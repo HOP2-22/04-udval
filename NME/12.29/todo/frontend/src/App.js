@@ -29,10 +29,8 @@ function App() {
       console.log(error.message);
     }
   };
-  const DeleteList = async () => {
-    try {
-      const res = await axios.delete("http://localhost:8000/");
-    } catch (error) {}
+  const DeleteList = async (id) => {
+    await axios.delete(`http://localhost:8000/${id}`);
   };
   return (
     <div className="App">
@@ -67,6 +65,7 @@ function App() {
               title={list?.title}
               detail={list?.detail}
               isDone={list?.isDone}
+              DeleteList={() => DeleteList(list._id)}
             />
           );
         })}
