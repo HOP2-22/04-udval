@@ -25,3 +25,13 @@ exports.deleteList = async (req, res) => {
     res.status(404).send({ message: error.message });
   }
 };
+exports.updateData = async (req, res) => {
+  const id = req.params.id;
+  const isDone = req.body.isDone;
+  try {
+    await List.findByIdAndUpdate(id, { isDone });
+    res.send({ message: "List updated" });
+  } catch (error) {
+    res.status(404).send({ message: error.message });
+  }
+};

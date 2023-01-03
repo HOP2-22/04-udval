@@ -15,6 +15,10 @@ function App() {
     };
     fetchData();
   }, []);
+  const getData = async () => {
+    const data = await axios.get("http://localhost:8000/");
+    setDataa(data.data);
+  };
   const AddList = async () => {
     try {
       const res = await axios.post("http://localhost:8000/", {
@@ -25,12 +29,19 @@ function App() {
       setDataa(updatedData);
       setTitle("");
       setDetail("");
+      getData();
     } catch (error) {
       console.log(error.message);
     }
   };
   const DeleteList = async (id) => {
     await axios.delete(`http://localhost:8000/${id}`);
+    getData();
+  };
+  const updateIsDone = async (id, isDone) => {
+    const checked = !isDone;
+    await axios.put(`http://localhost:8000/${id}`, { isDone: checked });
+    getData();
   };
   return (
     <div className="App">
@@ -54,18 +65,25 @@ function App() {
           }}
           value={detail}
         />
-        <Button variant="contained" onClick={AddList}>
+        <Button variant="contained" onClick={AddList} sx={{ height: "56px" }}>
           Add
         </Button>
       </div>
+      <div style={{ width: "454px", display: "flex", flexDirection: "row" }}>
+        <p style={{ width: "170px", color: "grey" }}>title</p>
+        <p style={{ color: "grey" }}>detail</p>
+      </div>
       <div>
-        {dataa?.map((list) => {
+        {dataa?.map((list, index) => {
           return (
             <List
               title={list?.title}
               detail={list?.detail}
               isDone={list?.isDone}
               DeleteList={() => DeleteList(list._id)}
+              updateIsDone={() => updateIsDone(list._id, list.isDone)}
+              index={index}
+              key={index}
             />
           );
         })}
