@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lobster&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+body {
+  margin: 10px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  flex-direction: column;
+}
+.boginoologo {
+  color: #02b589;
+  font-family: "Lobster";
+  font-size: 56px;
+}
+button {
+  padding: 10px;
+}
+.containedbutton {
+  font-family: "Mulish";
+  border-radius: 50px;
+  background-color: #02b589;
+  border: 0px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  height: 44px;
+  width: 190px;
+}
+.button {
+  font-family: "Mulish";
+  background-color: #fff;
+  color: #02b589;
+  border: 0px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.logoPicContainer {
+  width: 72.37px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.logoleft {
+  position: absolute;
+  left: 0px;
+}
+.logoright {
+  position: absolute;
+  right: 0px;
+}
+.logocontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  width: 581px;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 100px;
+  padding-left: 20px;
+}
