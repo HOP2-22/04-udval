@@ -4,7 +4,7 @@ exports.getUrl = async (req, res) => {
   res.send(list);
 };
 exports.createUrl = async (req, res) => {
-  const list = await URL.create({
+  await URL.create({
     originalURL: req.body.original,
     shortenedURL: req.body.shortened,
   });

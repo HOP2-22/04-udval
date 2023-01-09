@@ -1,20 +1,21 @@
 const express = require("express");
-const port = 9000;
+
 const app = express();
 const mongoose = require("mongoose");
 const urlRouter = require("./router/URLRouter");
+const userRouter = require("./router/UserRouter");
 app.use(express.json());
 
-mongoose.connect(
-  "mongodb+srv://huurhunuda:Udaemrhuurhunshd1@cluster1.iifkkb1.mongodb.net/boginoo?retryWrites=true&w=majority",
-  { useNewUrlParser: true }
-);
+require("dotenv").config();
+const port = process.env.PORT;
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("connection established");
 });
 
 app.use("/", urlRouter);
+app.use("/user", userRouter);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
