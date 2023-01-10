@@ -14,9 +14,7 @@ export const Login = () => {
         email: email,
         password: password,
       });
-    } catch (error) {
-      alert(error);
-    }
+    } catch (error) {}
   };
   return (
     <div className="signupcontainer">
