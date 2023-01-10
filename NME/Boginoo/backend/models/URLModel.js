@@ -7,6 +7,6 @@ const URLSchema = new Schema({
   shortenedURL: { type: String },
 });
 
-const URL = mongoose.model("shortURL", URLSchema);
+const URL = mongoose.model("shorturls", URLSchema);
 
 module.exports = URL;

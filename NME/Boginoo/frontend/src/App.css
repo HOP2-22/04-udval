@@ -39,12 +39,17 @@ button {
   font-size: 20px;
 }
 .logoPicContainer {
-  width: 72.37px;
+  width: 73px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: 0.3s;
+}
+.logoPicContainer :hover {
+  width: "100px";
+  background-color: black;
 }
 .logoleft {
   position: absolute;
@@ -61,12 +66,18 @@ button {
   align-items: center;
 }
 input {
-  width: 581px;
-  height: 40px;
   border: 0px;
   border-radius: 100px;
   padding-left: 20px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.urlinput {
+  width: 581px;
+  height: 40px;
+}
+.signupinput {
+  width: 250px;
+  height: 40px;
 }
 .footer {
   width: 100vw;
@@ -76,4 +87,21 @@ input {
   align-items: center;
   justify-content: center;
   bottom: 10px;
+}
+input[type="password"] {
+  font-family: Verdana;
+  letter-spacing: 0.125em;
+}
+.signupcontainer {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.buttonsigup {
+  width: 272px;
+  margin: 20px;
 }
