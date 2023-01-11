@@ -16,7 +16,7 @@ export const SignUp = () => {
           return;
         }
         if (password === password2) {
-          const res = await axios.post("http://localhost:9000/user/signup", {
+          await axios.post("http://localhost:9000/user/signup", {
             email: email,
             password: password,
           });

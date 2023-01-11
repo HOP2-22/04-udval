@@ -17,7 +17,7 @@ function App() {
             <Route path="/shortened/:id" element={<Shortened />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/redirect" element={<Redirect />} />
+            <Route path="/:id" element={<Redirect />} />
           </Routes>
         </Layout>
       </BrowserRouter>

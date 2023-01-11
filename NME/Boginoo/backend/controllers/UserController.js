@@ -22,18 +22,23 @@ exports.createUser = async (req, res) => {
     res.send(error);
   }
 };
-const ACCESS_TOKEN_KEY = "dkfugveiabvf";
 exports.Login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email: email });
+
+    if (!user) {
+      res.status(400).json({ message: "Invalid email or password" });
+      return;
+    }
+
     const match = await bcrypt.compare(password, user.password);
     if (match) {
       const token = jwt.sign(
         {
           email: user.email,
         },
-        ACCESS_TOKEN_KEY
+        process.env.ACCESS_TOKEN_KEY
       );
       res.send({ user: user, match: match, token: token });
     } else {
