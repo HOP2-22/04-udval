@@ -10,7 +10,6 @@ export const UserContext = ({ children }) => {
     const getUserData = async () => {
       const token = localStorage.getItem("jwt-token");
       const email = localStorage.getItem("email");
-      console.log(token, email);
       try {
         if (email && token) {
           const userData = await axios.post("http://localhost:9000/user", {

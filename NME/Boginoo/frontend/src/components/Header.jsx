@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { User } from "../UserContext/UserContext";
 import Menu from "@mui/material/Menu";
 import { Button, MenuItem } from "@mui/material";
@@ -10,6 +10,8 @@ export const Header = () => {
   const [anchorEl, setAnchorEl] = useState(false);
 
   const open = Boolean(anchorEl);
+
+  const navigate = useNavigate();
 
   const { user, setUser } = useContext(User);
   const handleClick = (event) => {
@@ -23,6 +25,10 @@ export const Header = () => {
     setUser(null);
     localStorage.removeItem("email");
     localStorage.removeItem("jwt-token");
+  };
+
+  const handleHistory = () => {
+    navigate(`/history/${user.email}`);
   };
 
   return (
@@ -52,7 +58,7 @@ export const Header = () => {
             {user.email}
           </Button>
           <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-            <MenuItem>History</MenuItem>
+            <MenuItem onClick={handleHistory}>History</MenuItem>
             <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
           </Menu>
         </div>

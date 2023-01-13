@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -17,5 +18,19 @@ export const Redirect = () => {
     };
     fetchData();
   }, []);
-  window.location.replace(data.originalURL);
+  console.log(data);
+  return (
+    <div
+      style={{
+        display: "flex",
+        width: "100vw",
+        height: "80vh",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <CircularProgress color="success" />
+    </div>
+  );
+  // window.location.replace(data.originalURL);
 };
