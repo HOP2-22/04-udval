@@ -1,13 +1,14 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LogoBoginoo } from "../components/Logo";
 
 export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
+  const navigate = useNavigate();
   const handleSubmit = async () => {
     try {
       if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -20,7 +21,7 @@ export const SignUp = () => {
             email: email,
             password: password,
           });
-          alert("succesfully created new account, now sign in");
+          navigate("/login");
         }
       } else {
         alert("You have entered an invalid email address!");

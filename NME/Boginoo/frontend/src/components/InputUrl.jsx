@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
+import { User } from "../UserContext/UserContext";
 
 export const InputUrl = () => {
   const [original, setOriginal] = useState("");
+  const { user } = useContext(User);
   const shortenURL = async () => {
     try {
       let random = "";
@@ -19,6 +21,7 @@ export const InputUrl = () => {
       await axios.post("http://localhost:9000/", {
         originalURL: original,
         shortenedURL: random,
+        user: user.email,
       });
       await window.location.replace(`/shortened/${random}`);
     } catch (error) {

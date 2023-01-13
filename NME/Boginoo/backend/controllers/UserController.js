@@ -2,9 +2,19 @@ const User = require("../models/UserModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 exports.getUser = async (req, res) => {
+  console.log("tell me whyy");
+  console.log(req.body);
   try {
-    const list = await User.find();
-    res.send(list);
+    const list = await User.find({
+      email: req.body.email,
+    });
+    console.log(list);
+    if (list.length == 0) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+    res.status(200).send(list[0]);
   } catch (error) {
     res.send(error.message);
   }
@@ -40,11 +50,11 @@ exports.Login = async (req, res) => {
         },
         process.env.ACCESS_TOKEN_KEY
       );
-      res.send({ user: user, match: match, token: token });
+      res.send({ email: user.email, match: match, token: token });
     } else {
-      res.send({ message: "failed" });
+      res.status(400).send({ message: "failed" });
     }
   } catch (error) {
-    res.send({ message: error });
+    res.status(400).send({ message: error });
   }
 };

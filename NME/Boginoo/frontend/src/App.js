@@ -6,6 +6,7 @@ import { Shortened } from "./pages/Shortened";
 import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
 import { Redirect } from "./pages/Redirect";
+import { History } from "./pages/History";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/:id" element={<Redirect />} />
+            <Route path="/history/:userid" element={<History />} />
           </Routes>
         </Layout>
       </BrowserRouter>

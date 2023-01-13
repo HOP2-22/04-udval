@@ -4,5 +4,5 @@ const authentication = require("../middleware/authorization");
 
 const urlRouter = express.Router();
 
-urlRouter.get("/", authentication, getUrl).post("/", authentication, createUrl);
+urlRouter.get("/", getUrl).post("/", createUrl);
 module.exports = urlRouter;

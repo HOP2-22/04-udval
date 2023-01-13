@@ -6,13 +6,15 @@ import Logo from "../assets/logo.png";
 
 export const LogoBoginoo = () => {
   return (
-    <div className="logocontainer">
-      <div className="logoPicContainer">
-        <img src={LogoLeft} alt="logoleft" className="logoleft" />
-        <img src={Logo} alt="logo" className="logo" />
-        <img src={LogoRight} alt="logoright" className="logoright" />
+    <div>
+      <div className="logocontainer">
+        <div className="logoPicContainer">
+          <img src={LogoLeft} alt="logoleft" className="" />
+          <img src={Logo} alt="logo" className="" />
+          <img src={LogoRight} alt="logoright" className="" />
+        </div>
+        <div className="boginoologo">Boginoo</div>
       </div>
-      <div className="boginoologo">Boginoo</div>
     </div>
   );
 };

@@ -9,6 +9,7 @@ exports.createUrl = async (req, res) => {
   await URL.create({
     originalURL: req.body.originalURL,
     shortenedURL: req.body.shortenedURL,
+    email: req.body.user,
   });
   res.send({ message: "Create" });
 };

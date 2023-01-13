@@ -35,29 +35,20 @@ button {
   background-color: #fff;
   color: #02b589;
   border: 0px;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 20px;
 }
 .logoPicContainer {
-  width: 73px;
+  width: 100px;
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: space-between;
+  /* position: relative; */
   transition: 0.3s;
 }
 .logoPicContainer :hover {
-  width: "100px";
-  background-color: black;
-}
-.logoleft {
-  position: absolute;
-  left: 0px;
-}
-.logoright {
-  position: absolute;
-  right: 0px;
+  background-color: red;
 }
 .logocontainer {
   display: flex;

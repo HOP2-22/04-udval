@@ -1,24 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { LogoBoginoo } from "../components/Logo";
 import { useState } from "react";
 import axios from "axios";
+import { User } from "../UserContext/UserContext";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = async () => {
+  const { setUser } = useContext(User);
+
+  const handleLogin = async () => {
     try {
       const res = await axios.post("http://localhost:9000/user/login", {
         email: email,
         password: password,
       });
-    } catch (error) {}
+      localStorage.setItem("jwt-token", res.data.token);
+      localStorage.setItem("email", res.data.email);
+      console.log(res);
+      navigate("/");
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="signupcontainer">
-      <LogoBoginoo />
+      {/* <LogoBoginoo /> */}
       <div
         style={{
           width: "100vw",
@@ -55,10 +66,10 @@ export const Login = () => {
           }}
         />
       </div>
-      <button className="containedbutton buttonsigup" onClick={handleSubmit}>
+      <button className="containedbutton buttonsigup" onClick={handleLogin}>
         НЭВТРЭХ
       </button>
-      <Link to={"/signup"}>Шинэ хэрэглэгч бол энд дарна уу?</Link>
+      {/* <Link to={"/signup"}>Шинэ хэрэглэгч бол энд дарна уу?</Link> */}
     </div>
   );
 };
