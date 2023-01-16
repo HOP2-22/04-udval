@@ -18,6 +18,11 @@ export const InputUrl = () => {
         return random;
       };
       randomgenerate();
+      // console.log({
+      //   originalURL: original,
+      //   shortenedURL: random,
+      //   user: user.email,
+      // });
       await axios.post("http://localhost:9000/", {
         originalURL: original,
         shortenedURL: random,

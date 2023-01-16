@@ -15,7 +15,6 @@ export const UserContext = ({ children }) => {
           const userData = await axios.post("http://localhost:9000/user", {
             email: email,
           });
-          // token: token,
           setUser(userData.data);
         }
       } catch (error) {

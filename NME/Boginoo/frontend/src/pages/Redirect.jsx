@@ -1,24 +1,22 @@
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export const Redirect = () => {
   const { id } = useParams();
-  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const list = await axios.get("http://localhost:9000/");
       list.data.map((e) => {
         if (e.shortenedURL === id) {
-          setData(e);
+          window.location.replace(e.originalURL);
         }
       });
     };
     fetchData();
   }, []);
-  console.log(data);
   return (
     <div
       style={{
@@ -32,5 +30,4 @@ export const Redirect = () => {
       <CircularProgress color="success" />
     </div>
   );
-  // window.location.replace(data.originalURL);
 };

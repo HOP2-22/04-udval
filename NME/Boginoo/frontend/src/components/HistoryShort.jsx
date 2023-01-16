@@ -2,6 +2,7 @@ import { Divider } from "@mui/material";
 import React from "react";
 
 export const HistoryShort = ({ originalURL, shortenedURL }) => {
+  console.log("original:" + originalURL, "short:" + shortenedURL);
   return (
     <div>
       <div>

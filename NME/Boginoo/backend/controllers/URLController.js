@@ -12,3 +12,14 @@ exports.createUrl = async (req, res) => {
   });
   res.send({ message: "Create" });
 };
+exports.getUrlByOne = async (req, res) => {
+  const { id } = req.params.id;
+  try {
+    const data = await URL.findOne({
+      shortenedURL: id,
+    });
+    res.send(data);
+  } catch (error) {
+    res.status(error.statusCode).send({ message: error });
+  }
+};

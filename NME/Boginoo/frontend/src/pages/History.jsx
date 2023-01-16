@@ -13,22 +13,28 @@ export const History = () => {
       const list = await axios.get("http://localhost:9000/");
       list.data.map((e) => {
         if (e.user === userid) {
-          setData(e);
+          setData(...data, e);
         }
       });
     };
     fetchData();
   }, []);
-  console.log(data);
+
   return (
     <div>
       <LogoBoginoo />
       <p>Түүх</p>
       <div>
-        <HistoryShort
-          originalURL={data.originalURL}
-          shortenedURL={data.shortenedURL}
-        />
+        {/* {data?.map((dataa) => {
+          console.log(dataa);
+          return (
+            // <HistoryShort
+            //   originalURL={dataa.originalURL}
+            //   shortenedURL={dataa.shortenedURL}
+            // />
+            <p>hi</p>
+          );
+        })} */}
       </div>
     </div>
   );
