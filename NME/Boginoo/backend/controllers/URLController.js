@@ -13,8 +13,9 @@ exports.createUrl = async (req, res) => {
   res.send({ message: "Create" });
 };
 exports.getUrlByOne = async (req, res) => {
-  const { id } = req.params.id;
+  const { id } = req.params;
   try {
+    console.log(id);
     const data = await URL.findOne({
       shortenedURL: id,
     });
