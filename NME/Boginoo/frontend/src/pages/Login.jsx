@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LogoBoginoo } from "../components/Logo";
 import { useState } from "react";
 import axios from "axios";
-import { User } from "../UserContext/UserContext";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
-  const { setUser } = useContext(User);
 
   const handleLogin = async () => {
     try {
@@ -29,7 +26,7 @@ export const Login = () => {
   };
   return (
     <div className="signupcontainer">
-      {/* <LogoBoginoo /> */}
+      <LogoBoginoo />
       <div
         style={{
           width: "100vw",
@@ -69,7 +66,7 @@ export const Login = () => {
       <button className="containedbutton buttonsigup" onClick={handleLogin}>
         НЭВТРЭХ
       </button>
-      {/* <Link to={"/signup"}>Шинэ хэрэглэгч бол энд дарна уу?</Link> */}
+      <Link to={"/signup"}>Шинэ хэрэглэгч бол энд дарна уу?</Link>
     </div>
   );
 };

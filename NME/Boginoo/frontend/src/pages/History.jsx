@@ -10,31 +10,46 @@ export const History = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const list = await axios.get("http://localhost:9000/");
-      list.data.map((e) => {
-        if (e.user === userid) {
-          setData(...data, e);
-        }
-      });
+      const list = await axios.get(`http://localhost:9000/history/${userid}`);
+      setData(list.data);
     };
     fetchData();
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        minHeight: "60vh",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <LogoBoginoo />
-      <p>Түүх</p>
-      <div>
-        {/* {data?.map((dataa) => {
-          console.log(dataa);
-          return (
-            // <HistoryShort
-            //   originalURL={dataa.originalURL}
-            //   shortenedURL={dataa.shortenedURL}
-            // />
-            <p>hi</p>
-          );
-        })} */}
+      <div style={{ width: "80vw" }}>
+        <p
+          style={{
+            fontFamily: "Ubuntu",
+            fontWeight: "700",
+            fontSize: "32px",
+            color: "#02B589",
+          }}
+        >
+          Түүх
+        </p>
+        <div>
+          {data?.map((dataa, index) => {
+            return (
+              <HistoryShort
+                originalURL={dataa.originalURL}
+                shortenedURL={dataa.shortenedURL}
+                index={index}
+                key={index}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

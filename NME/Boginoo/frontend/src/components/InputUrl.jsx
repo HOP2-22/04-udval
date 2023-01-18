@@ -23,12 +23,18 @@ export const InputUrl = () => {
       //   shortenedURL: random,
       //   user: user.email,
       // });
+
       await axios.post("http://localhost:9000/", {
         originalURL: original,
         shortenedURL: random,
         user: user.email,
       });
-      await window.location.replace(`/shortened/${random}`);
+      console.log({
+        originalURL: original,
+        shortenedURL: random,
+        user: user.email,
+      });
+      // await window.location.replace(`/shortened/${random}`);
     } catch (error) {
       console.log(error);
     }

@@ -9,12 +9,8 @@ export const Shortened = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const list = await axios.get("http://localhost:9000/");
-      list.data.map((e) => {
-        if (e.shortenedURL === id) {
-          setData(e);
-        }
-      });
+      const list = await axios.get(`http://localhost:9000/shortened/${id}`);
+      setData(list.data);
     };
     fetchData();
   }, []);

@@ -7,6 +7,7 @@ import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
 import { Redirect } from "./pages/Redirect";
 import { History } from "./pages/History";
+import { GuardedRoute } from "./guard/auth";
 
 function App() {
   return (
@@ -19,7 +20,14 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/:id" element={<Redirect />} />
-            <Route path="/history/:userid" element={<History />} />
+            <Route
+              path="/history/:userid"
+              element={
+                <GuardedRoute>
+                  <History />
+                </GuardedRoute>
+              }
+            />
           </Routes>
         </Layout>
       </BrowserRouter>
