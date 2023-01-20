@@ -1,29 +1,51 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LogoBoginoo } from "../components/Logo";
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+import { User } from "../UserContext/UserContext";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const res = await axios.post("http://localhost:9000/user/login", {
+  const { setUser } = useContext(User);
+
+  // const handleLogin = async () => {
+  //   try {
+  //     const res = await axios.post("http://localhost:9000/user/login", {
+  //       email: email,
+  //       password: password,
+  //     });
+  //     localStorage.setItem("jwt-token", res.data.token);
+  //     localStorage.setItem("email", res.data.email);
+  //     console.log(res);
+  //     navigate("/");
+  //     window.location.reload();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const login = async (e) => {
+    e.preventDefault();
+    await axios
+      .post("http://localhost:9000/user/login", {
         email: email,
         password: password,
+      })
+      .then((e) => {
+        Cookies.set("token", e.data.token);
+        setUser(e.data.email);
+        navigate("/");
+      })
+      .catch((e) => {
+        throw e;
       });
-      localStorage.setItem("jwt-token", res.data.token);
-      localStorage.setItem("email", res.data.email);
-      console.log(res);
-      navigate("/");
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
-    }
   };
+
   return (
     <div className="signupcontainer">
       <LogoBoginoo />
@@ -63,7 +85,7 @@ export const Login = () => {
           }}
         />
       </div>
-      <button className="containedbutton buttonsigup" onClick={handleLogin}>
+      <button className="containedbutton buttonsigup" onClick={login}>
         НЭВТРЭХ
       </button>
       <Link to={"/signup"}>Шинэ хэрэглэгч бол энд дарна уу?</Link>

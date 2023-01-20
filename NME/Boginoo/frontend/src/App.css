@@ -103,3 +103,40 @@ input[type="password"] {
   gap: 10px;
   margin: 20px;
 }
+@media screen and (max-width: 820px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .urlinput {
+    width: 70vw;
+  }
+  .headercontainer {
+    margin-top: 10px;
+    padding-right: 10px;
+  }
+  .button {
+    font-size: 0.7em;
+  }
+  .medkuenegbutton {
+    font-size: 0.7em;
+  }
+  .containedbutton {
+    font-size: 0.7em;
+    width: 100px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .logocontainer {
+    width: 100px;
+  }
+}

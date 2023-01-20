@@ -38,6 +38,7 @@ export const Header = () => {
         justifyContent: "flex-end",
         alignItems: "center",
       }}
+      className="headercontainer"
     >
       <button className="button">ХЭРХЭН АЖИЛЛАДАГ ВЭ?</button>
       {user ? (
@@ -53,6 +54,7 @@ export const Header = () => {
               fontFamily: "Ubuntu",
               fontWeight: "700",
             }}
+            className="medkuenegbutton"
             endIcon={<KeyboardArrowDownIcon color="success" />}
           >
             {user.email}
