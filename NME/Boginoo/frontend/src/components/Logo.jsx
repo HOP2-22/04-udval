@@ -11,7 +11,7 @@ export const LogoBoginoo = () => {
     navigate("/");
   };
   return (
-    <div onClick={navigateToHome}>
+    <div onClick={navigateToHome} className>
       <div className="logocontainer">
         <div className="logoPicContainer">
           <img src={LogoLeft} alt="logoleft" className="" />
