@@ -1,6 +1,6 @@
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export const Redirect = () => {

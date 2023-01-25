@@ -26,12 +26,7 @@ export const InputUrl = () => {
         await axios.post("https://uda-boginoo-back.onrender.com/", {
           originalURL: original,
           shortenedURL: random,
-          user: user.email,
-        });
-        console.log({
-          originalURL: original,
-          shortenedURL: random,
-          user: user.email,
+          user: user?.email ? user?.email : null,
         });
         await window.location.replace(`/shortened/${random}`);
       } catch (error) {

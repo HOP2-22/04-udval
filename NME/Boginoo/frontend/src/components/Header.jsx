@@ -34,6 +34,8 @@ export const Header = () => {
   return (
     <div
       style={{
+        marginTop: "10px",
+        marginRight: "10px",
         display: "flex",
         justifyContent: "flex-end",
         alignItems: "center",
