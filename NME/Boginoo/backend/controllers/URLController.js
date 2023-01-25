@@ -1,7 +1,7 @@
 const URL = require("../models/URLModel");
 exports.getUrl = async (req, res) => {
   const list = await URL.find();
-  res.send(list);
+  res.status(200).json({ ...list });
 };
 exports.createUrl = async (req, res) => {
   console.log(req.body);
@@ -10,7 +10,7 @@ exports.createUrl = async (req, res) => {
     shortenedURL: req.body.shortenedURL,
     user: req.body.user,
   });
-  res.send({ message: "Create" });
+  res.status(200).json({ message: "Create" });
 };
 exports.getUrlByOne = async (req, res) => {
   const { id } = req.params;
@@ -20,9 +20,9 @@ exports.getUrlByOne = async (req, res) => {
       shortenedURL: id,
     });
     console.log(data);
-    res.send(data);
+    res.status(200).json(data);
   } catch (error) {
-    res.status(error.statusCode).send({ message: error });
+    res.status(error.statusCode).json({ message: error });
   }
 };
 exports.getUrlByEmail = async (req, res) => {
@@ -33,8 +33,19 @@ exports.getUrlByEmail = async (req, res) => {
       user: email,
     });
     console.log(data);
-    res.send(data);
+    res.status(200).json(data);
   } catch (error) {
-    res.status(404).send({ message: error });
+    res.status(404).json({ message: error });
+  }
+};
+exports.Navigate = async (req, res) => {
+  const { short } = req.params;
+  try {
+    const data = await URL.findOne({
+      shortenedURL: short,
+    });
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(404).json({ message: error });
   }
 };

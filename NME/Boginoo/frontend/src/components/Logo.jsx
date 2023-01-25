@@ -11,12 +11,12 @@ export const LogoBoginoo = () => {
     navigate("/");
   };
   return (
-    <div onClick={navigateToHome} className>
+    <div onClick={navigateToHome}>
       <div className="logocontainer">
         <div className="logoPicContainer">
-          <img src={LogoLeft} alt="logoleft" className="" />
-          <img src={Logo} alt="logo" className="" />
-          <img src={LogoRight} alt="logoright" className="" />
+          <img src={LogoLeft} alt="logoleft" />
+          <img src={Logo} alt="logo" />
+          <img src={LogoRight} alt="logoright" />
         </div>
         <div className="boginoologo">Boginoo</div>
       </div>

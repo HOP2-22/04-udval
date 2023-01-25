@@ -13,26 +13,10 @@ export const Login = () => {
 
   const { setUser } = useContext(User);
 
-  // const handleLogin = async () => {
-  //   try {
-  //     const res = await axios.post("http://localhost:9000/user/login", {
-  //       email: email,
-  //       password: password,
-  //     });
-  //     localStorage.setItem("jwt-token", res.data.token);
-  //     localStorage.setItem("email", res.data.email);
-  //     console.log(res);
-  //     navigate("/");
-  //     window.location.reload();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const login = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:9000/user/login", {
+      .post(`https://uda-boginoo-back.onrender.com/user/login`, {
         email: email,
         password: password,
       })
@@ -40,6 +24,7 @@ export const Login = () => {
         Cookies.set("token", e.data.token);
         setUser(e.data.email);
         navigate("/");
+        window.location.reload();
       })
       .catch((e) => {
         throw e;

@@ -5,6 +5,7 @@ import { User } from "../UserContext/UserContext";
 import Menu from "@mui/material/Menu";
 import { Button, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Cookies from "js-cookie";
 
 export const Header = () => {
   const [anchorEl, setAnchorEl] = useState(false);
@@ -23,8 +24,7 @@ export const Header = () => {
   };
   const handleLogOut = () => {
     setUser(null);
-    localStorage.removeItem("email");
-    localStorage.removeItem("jwt-token");
+    Cookies.remove("token");
   };
 
   const handleHistory = () => {
@@ -57,7 +57,7 @@ export const Header = () => {
             className="medkuenegbutton"
             endIcon={<KeyboardArrowDownIcon color="success" />}
           >
-            {user.email}
+            {user?.email}
           </Button>
           <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
             <MenuItem onClick={handleHistory}>History</MenuItem>

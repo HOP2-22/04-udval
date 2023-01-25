@@ -17,16 +17,20 @@ export const SignUp = () => {
           return;
         }
         if (password === password2) {
-          await axios.post("http://localhost:9000/user/signup", {
-            email: email,
-            password: password,
-          });
+          await axios.post(
+            "https://uda-boginoo-back.onrender.com/user/signup",
+            {
+              email: email,
+              password: password,
+            }
+          );
           navigate("/login");
         }
       } else {
         alert("You have entered an invalid email address!");
       }
     } catch (error) {
+      alert("ene email deer hereglegch burtgeltei baina");
       console.log(error);
     }
   };

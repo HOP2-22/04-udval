@@ -5,7 +5,6 @@ import { User } from "../UserContext/UserContext";
 
 export const GuardedRoute = ({ children }) => {
   const { user } = useContext(User);
-  console.log(user, !user);
   if (!user) {
     return <Navigate to="/login" replace />;
   }

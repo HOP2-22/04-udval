@@ -10,7 +10,10 @@ export const History = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const list = await axios.get(`http://localhost:9000/history/${userid}`);
+      const list = await axios.get(
+        `https://uda-boginoo-back.onrender.com/history/${userid}`
+      );
+      console.log(list);
       setData(list.data);
     };
     fetchData();
@@ -24,6 +27,7 @@ export const History = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: "20px",
       }}
     >
       <LogoBoginoo />

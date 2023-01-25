@@ -1,9 +1,9 @@
-import { Divider } from "@mui/material";
+import { Button, Divider } from "@mui/material";
 import React from "react";
 
 export const HistoryShort = ({ originalURL, shortenedURL }) => {
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(`http://localhost:3000/${shortenedURL}`);
+  const copyToClipboard = (link) => {
+    navigator.clipboard.writeText(link);
   };
   return (
     <div>
@@ -23,12 +23,12 @@ export const HistoryShort = ({ originalURL, shortenedURL }) => {
           <p>Богино холбоос:</p>
           <p>
             {" "}
-            <a href={`http://localhost:3000/${shortenedURL}`}>
-              http://localhost:3000/{shortenedURL}
+            <a href={`http://uda-boginoo.web.app/${shortenedURL}`}>
+              http://uda-boginoo.web.app/{shortenedURL}
             </a>
           </p>
         </div>
-        <p
+        <Button
           style={{
             fontSize: "18px",
             color: "#02B589",
@@ -36,11 +36,11 @@ export const HistoryShort = ({ originalURL, shortenedURL }) => {
             textAlign: "start",
           }}
           onClick={() => {
-            copyToClipboard(`http://localhost:3000/${shortenedURL}`);
+            copyToClipboard(`http://uda-boginoo.web.app/${shortenedURL}`);
           }}
         >
           Хуулж авах
-        </p>
+        </Button>
       </div>
       <Divider />
     </div>

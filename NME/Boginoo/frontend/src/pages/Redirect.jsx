@@ -1,19 +1,16 @@
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export const Redirect = () => {
   const { id } = useParams();
-
   useEffect(() => {
     const fetchData = async () => {
-      const list = await axios.get("http://localhost:9000/");
-      list.data.map((e) => {
-        if (e.shortenedURL === id) {
-          window.location.replace(e.originalURL);
-        }
-      });
+      const { data } = await axios.get(
+        `https://uda-boginoo-back.onrender.com/${id}`
+      );
+      window.location.replace(data.originalURL);
     };
     fetchData();
   }, []);

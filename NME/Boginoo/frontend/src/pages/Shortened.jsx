@@ -3,18 +3,22 @@ import { LogoBoginoo } from "../components/Logo";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { InputUrl } from "../components/InputUrl";
+import { Button } from "@mui/material";
 export const Shortened = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
-
+  const copyToClipboard = (link) => {
+    navigator.clipboard.writeText(link);
+  };
   useEffect(() => {
     const fetchData = async () => {
-      const list = await axios.get(`http://localhost:9000/shortened/${id}`);
+      const list = await axios.get(
+        `https://uda-boginoo-back.onrender.com/shortened/${id}`
+      );
       setData(list.data);
     };
     fetchData();
   }, []);
-  console.log(data);
   return (
     <div className="homePageContainer">
       <LogoBoginoo />
@@ -29,11 +33,25 @@ export const Shortened = () => {
           <p>Богино холбоос:</p>
           <div>
             <p>
-              <a href={`http://localhost:3000/${data.shortenedURL}`}>
-                http://localhost:3000/{data.shortenedURL}
+              <a href={`http://uda-boginoo.web.app/${data.shortenedURL}`}>
+                uda-boginoo.web.app/{data.shortenedURL}
               </a>
             </p>
-            <p>Хуулж авах</p>
+            <Button
+              style={{
+                fontSize: "18px",
+                color: "#02B589",
+                width: "12vw",
+                textAlign: "start",
+              }}
+              onClick={() => {
+                copyToClipboard(
+                  `http://uda-boginoo.web.app/${data.shortenedURL}`
+                );
+              }}
+            >
+              Хуулж авах
+            </Button>
           </div>
         </div>
       </div>

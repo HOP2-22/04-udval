@@ -5,36 +5,36 @@ import Cookies from "js-cookie";
 export const User = createContext();
 
 export const UserContext = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(Cookies.get("token"));
 
   axios.interceptors.request.use(
     (config) => {
       const token = Cookies.get("token");
-      config.headers.set("token", token);
-      return config;
+      if (token) {
+        config.headers.set("token", token);
+        return config;
+      } else {
+        return config;
+      }
     },
     (error) => {
       return Promise.reject(error);
     }
   );
 
-  // useEffect(() => {
-  //   const getUserData = async () => {
-  //     // const token = localStorage.getItem("jwt-token");
-  //     const email = localStorage.getItem("email");
-  //     try {
-  //       if (email && token) {
-  //         const userData = await axios.post("http://localhost:9000/user", {
-  //           email: email,
-  //         });
-  //         setUser(userData.data);
-  //       }
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   };
-  //   getUserData();
-  // }, [localStorage]);
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const { data } = await axios.post(
+          "https://uda-boginoo-back.onrender.com/user"
+        );
+        setUser(data);
+      } catch (error) {
+        throw error;
+      }
+    };
+    getUserData();
+  }, []);
 
   return (
     <User.Provider value={{ user: user, setUser: setUser }}>

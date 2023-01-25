@@ -16,7 +16,7 @@ function App() {
     fetchData();
   }, []);
   const getData = async () => {
-    const data = await axios.get("http://localhost:8000/");
+    const data = await axios.get("http://8000/");
     setDataa(data.data);
   };
   const AddList = async () => {
