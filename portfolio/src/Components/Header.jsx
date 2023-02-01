@@ -2,5 +2,7 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 
 export const Header = () => {
-  <AppBar></AppBar>;
+  <AppBar>
+    <div></div>
+  </AppBar>;
 };
