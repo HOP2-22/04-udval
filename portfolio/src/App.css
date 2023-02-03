@@ -3,6 +3,7 @@
 p {
   font-family: "Space Grotesk", sans-serif;
   color: #f4e7d4;
+  margin: 0;
 }
 
 @keyframes move {

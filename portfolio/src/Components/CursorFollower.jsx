@@ -19,5 +19,5 @@ export const CursorFollower = () => {
       $("#circle").css({ left: xp + "px", top: yp + "px" });
     }, 20);
   });
-  return <span id="circle" class="circle"></span>;
+  return <span id="circle" className="circle"></span>;
 };
