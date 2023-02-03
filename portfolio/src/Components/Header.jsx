@@ -1,8 +1,31 @@
-import React from "react";
-import AppBar from "@mui/material/AppBar";
+import React, { useContext } from "react";
+import { ColorModeContext } from "../Context/ThemeContext";
 
 export const Header = () => {
-  <AppBar>
-    <div></div>
-  </AppBar>;
+  const { isDark, changeTheme } = useContext(ColorModeContext);
+  return (
+    <div style={{ zIndex: "2" }}>
+      <div>
+        <p>UDVAL ALTANGEREL</p>
+        <p>Student @ Pinecone Academy</p>
+      </div>
+      <div>
+        <a>
+          <p>// Introduction</p>
+        </a>
+        <a>
+          <p>// Works</p>
+        </a>
+        <p
+          onClick={() => {
+            changeTheme();
+            console.log(isDark);
+          }}
+          style={{ color: isDark === true ? "white" : "black" }}
+        >
+          // Make it pop
+        </p>
+      </div>
+    </div>
+  );
 };
