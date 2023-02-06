@@ -1,3 +1,4 @@
+import { color } from "@mui/system";
 import React, { useContext } from "react";
 import { ColorModeContext } from "../Context/ThemeContext";
 
@@ -13,8 +14,11 @@ export const Header = () => {
           md: "row",
         },
         justifyContent: "space-between",
-        padding: "8px",
+        padding: "20px",
         alignItems: "center",
+        backdropFilter: "blur(10px)",
+        position: "sticky",
+        top: "0px",
       }}
     >
       <div>

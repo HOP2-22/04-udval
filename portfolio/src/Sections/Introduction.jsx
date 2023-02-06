@@ -4,7 +4,7 @@ export const Introduction = () => {
   return (
     <div>
       <div>
-        <p>
+        <p style={{ fontSize: "2em" }}>
           Takuya is a freelance and a full-stack developer based in Osaka with a
           passion for building digital services/stuff he wants. He has a knack
           for all things launching products, from planning and designing all the

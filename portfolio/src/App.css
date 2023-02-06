@@ -4,6 +4,7 @@ p {
   font-family: "Space Grotesk", sans-serif;
   color: #f4e7d4;
   margin: 0;
+  font-weight: 800;
 }
 
 @keyframes move {
@@ -11,7 +12,6 @@ p {
     transform: translate3d(0, 0, 1px) rotate(360deg);
   }
 }
-
 .background {
   position: fixed;
   width: 100vw;
@@ -133,4 +133,17 @@ p {
   height: 12px;
   border-radius: 50%;
   background-color: #f4e7d4;
+}
+.cardPicture {
+  height: 600px;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+.cardPicture:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+a {
+  text-decoration: none;
 }

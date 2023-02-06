@@ -1,37 +1,63 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-const CardItem = [
-  {
-    Header: "Weather",
-    Description: "blah blah blah blah blah",
-    Picture: "../Assets/WeatherPic.png",
+import Boginoo from "../Assets/BoginooPic.png";
+import Weather from "../Assets/WeatherPic.png";
+import Flipgame from "../Assets/FlipgamePic.png";
+import { Box } from "@mui/system";
+const styles = {
+  cardPicContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden",
+    width: {
+      xs: "90vw",
+      md: "45vw",
+      lg: "30vw",
+    },
+    borderRadius: "20px",
   },
-  {
-    Header: "Flip Game",
-    Description: "blah blah blah blah blah",
-    Picture: "../Assets/FlipgamePic.png",
+  cardHeader: {
+    fontSize: "2.25em",
   },
-  {
-    Header: "Boginoo",
-    Description: "blah blah blah blah blah",
-    Picture: "../Assets/BoginooPic.png",
-  },
-];
+};
 export const Work = () => {
   return (
-    <div style={{ zIndex: "2" }}>
+    <div>
       <Grid container>
-        {CardItem.map((el) => {
-          return (
-            <Grid item xs={12} md={6} lg={4}>
-              <div>
-                <img src={el.Picture} />
-                <p>{el.Header}</p>
-                <p>{el.Description}</p>
-              </div>
-            </Grid>
-          );
-        })}
+        <Grid item xs={12} md={6} lg={4}>
+          <a target="_blank" href="https://weather-uda.web.app/">
+            <div>
+              <Box sx={styles.cardPicContainer}>
+                <img src={Weather} className="cardPicture" />
+              </Box>
+              <p style={styles.cardHeader}>Weather</p>
+              <p>blahblahblahlblahblahblah</p>
+            </div>
+          </a>
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <a target="_blank" href="https://flipgame-uda.web.app/">
+            <div>
+              <Box sx={styles.cardPicContainer}>
+                <img src={Flipgame} className="cardPicture" />
+              </Box>
+              <p style={styles.cardHeader}>Flip Game</p>
+              <p>blahblahblahlblahblahblah</p>
+            </div>
+          </a>
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <a target="_blank" href="https://uda-boginoo.web.app/">
+            <div>
+              <Box sx={styles.cardPicContainer}>
+                <img src={Boginoo} className="cardPicture" />
+              </Box>
+              <p style={styles.cardHeader}>Boginoo</p>
+              <p>blahblahblahlblahblahblah</p>
+            </div>
+          </a>
+        </Grid>
       </Grid>
     </div>
   );
