@@ -21,43 +21,46 @@ const styles = {
     fontSize: "2.25em",
   },
 };
+
 export const Work = () => {
+  const data = [
+    {
+      title: "Weather",
+      img: Weather,
+      description: "blahblahblahlblahblahblah",
+      link: "https://weather-uda.web.app/",
+    },
+    {
+      title: "Flip Game",
+      img: Flipgame,
+      description: "blahblahblahlblahblahblah",
+      link: "https://flipgame-uda.web.app/",
+    },
+    {
+      title: "Boginoo",
+      img: Boginoo,
+      description: "blahblahblahlblahblahblah",
+      link: "https://uda-boginoo.web.app/",
+    },
+  ];
   return (
     <div>
       <Grid container>
-        <Grid item xs={12} md={6} lg={4}>
-          <a target="_blank" href="https://weather-uda.web.app/">
-            <div>
-              <Box sx={styles.cardPicContainer}>
-                <img src={Weather} className="cardPicture" />
-              </Box>
-              <p style={styles.cardHeader}>Weather</p>
-              <p>blahblahblahlblahblahblah</p>
-            </div>
-          </a>
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <a target="_blank" href="https://flipgame-uda.web.app/">
-            <div>
-              <Box sx={styles.cardPicContainer}>
-                <img src={Flipgame} className="cardPicture" />
-              </Box>
-              <p style={styles.cardHeader}>Flip Game</p>
-              <p>blahblahblahlblahblahblah</p>
-            </div>
-          </a>
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <a target="_blank" href="https://uda-boginoo.web.app/">
-            <div>
-              <Box sx={styles.cardPicContainer}>
-                <img src={Boginoo} className="cardPicture" />
-              </Box>
-              <p style={styles.cardHeader}>Boginoo</p>
-              <p>blahblahblahlblahblahblah</p>
-            </div>
-          </a>
-        </Grid>
+        {data.map((item, index) => {
+          return (
+            <Grid item xs={12} md={6} lg={4} key={index}>
+              <a target="_blank" href={item.link}>
+                <div>
+                  <Box sx={styles.cardPicContainer}>
+                    <img src={item.img} className="cardPicture" />
+                  </Box>
+                  <p style={styles.cardHeader}>{item.title}</p>
+                  <p>{item.description}</p>
+                </div>
+              </a>
+            </Grid>
+          );
+        })}
       </Grid>
     </div>
   );
