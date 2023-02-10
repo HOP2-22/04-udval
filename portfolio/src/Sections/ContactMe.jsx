@@ -9,8 +9,8 @@ export const Contact = () => {
     {
       socialPlatform: "instagram",
       icon: <InstagramIcon />,
-      username: "@eneminireclamnioronzai",
-      link: "https://instagram.com/eneminireclamnioronzai",
+      username: "@huurhunuda",
+      link: "https://instagram.com/huuthunuda",
     },
     {
       socialPlatform: "twitter",
@@ -36,8 +36,24 @@ export const Contact = () => {
       {data.map((item, index) => {
         return (
           <a href={item.link} key={index}>
-            <div>{item.icon}</div>
-            <div>{item.username}</div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "10px",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {item.icon}
+              </div>
+              <div>{item.username}</div>
+            </div>
           </a>
         );
       })}

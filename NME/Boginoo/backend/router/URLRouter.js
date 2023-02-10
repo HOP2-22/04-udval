@@ -14,6 +14,6 @@ urlRouter
   .get("/", getUrl)
   .post("/", createUrl)
   .get("/shortened/:id", getUrlByOne)
-  .get("/history/:email", getUrlByEmail)
+  .get("/history/:page/:limit", getUrlByEmail)
   .get("/:short", Navigate);
 module.exports = urlRouter;

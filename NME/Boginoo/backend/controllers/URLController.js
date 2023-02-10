@@ -26,12 +26,18 @@ exports.getUrlByOne = async (req, res) => {
   }
 };
 exports.getUrlByEmail = async (req, res) => {
-  const { email } = req.params;
+  const email = req.body.email;
+  const page = Number(req.params.page);
+  const limit = Number(req.params.limit);
+
   console.log(email);
   try {
     const data = await URL.find({
       user: email,
-    });
+    })
+      .limit(limit)
+      .skip(limit * (page - 1))
+      .exec();
     console.log(data);
     res.status(200).json(data);
   } catch (error) {
