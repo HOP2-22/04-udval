@@ -8,37 +8,38 @@ export const Contact = () => {
   const data = [
     {
       socialPlatform: "instagram",
-      icon: InstagramIcon,
+      icon: <InstagramIcon />,
       username: "@eneminireclamnioronzai",
       link: "https://instagram.com/eneminireclamnioronzai",
     },
     {
       socialPlatform: "twitter",
-      icon: TwitterIcon,
+      icon: <TwitterIcon />,
       username: "@eneminidiary",
       link: "https://twitter.com/eneminidiary",
     },
     {
       socialPlatform: "github",
-      icon: GitHubIcon,
+      icon: <GitHubIcon />,
       username: "@huurhunuda",
       link: "https://github.com/huurhunuda",
     },
     {
       socialPlatform: "youtube",
-      icon: YouTubeIconu,
+      icon: <YouTubeIcon />,
       username: "@huurhunuda",
       link: "https://youtube.com/@huurhunuda",
     },
   ];
   return (
     <div>
-      {data.map((item) => {
-        return;
-        <a href={item.link}>
-          <div>{item.icon}</div>
-          <div>{item.username}</div>
-        </a>;
+      {data.map((item, index) => {
+        return (
+          <a href={item.link} key={index}>
+            <div>{item.icon}</div>
+            <div>{item.username}</div>
+          </a>
+        );
       })}
       <div></div>
     </div>
