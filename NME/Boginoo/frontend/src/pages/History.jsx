@@ -1,25 +1,36 @@
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Pagination } from "@mui/material";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { User } from "../UserContext/UserContext";
 import { HistoryShort } from "../components/HistoryShort";
 import { LogoBoginoo } from "../components/Logo";
+// import { useParams } from "react-router-dom";
 
 export const History = () => {
   const [loading, setLoading] = useState(true);
-  const { userid } = useParams();
+  const { user } = useContext(User);
+  const [pageNum, setPageNum] = useState(1);
   const [data, setData] = useState([]);
+  const [dataCount, setDataCount] = useState(null);
   useEffect(() => {
+    const countData = async () => {
+      const res = await axios.get(`http://localhost:9000/historycount`);
+      setDataCount(Math.ceil(res.data / 6));
+    };
+    countData();
+  }, []);
+  useEffect(() => {
+    console.log(user.email);
     const fetchData = async () => {
       const list = await axios.get(
-        `https://uda-boginoo-back.onrender.com/history/${userid}`
+        `http://localhost:9000/history/${pageNum}/6`
       );
       setLoading(false);
       setData(list.data);
     };
     fetchData();
-  }, []);
+  }, [user, pageNum]);
   return (
     <div>
       {loading ? (
@@ -67,6 +78,23 @@ export const History = () => {
                   />
                 );
               })}
+            </div>
+            <div
+              style={{
+                width: "100%",
+                height: "100px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Pagination
+                count={dataCount}
+                color="success"
+                onChange={(e, value) => {
+                  setPageNum(value);
+                }}
+              />
             </div>
           </div>
         </div>

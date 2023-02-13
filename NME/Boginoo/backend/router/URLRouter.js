@@ -5,8 +5,9 @@ const {
   getUrlByOne,
   getUrlByEmail,
   Navigate,
+  getDataCount,
 } = require("../controllers/URLController");
-// const authentication = require("../middleware/authorization");
+const authentication = require("../middleware/authorization");
 
 const urlRouter = express.Router();
 
@@ -15,5 +16,6 @@ urlRouter
   .post("/", createUrl)
   .get("/shortened/:id", getUrlByOne)
   .get("/history/:page/:limit", getUrlByEmail)
+  .get("/historycount", getDataCount)
   .get("/:short", Navigate);
 module.exports = urlRouter;

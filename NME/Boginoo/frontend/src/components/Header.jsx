@@ -28,7 +28,7 @@ export const Header = () => {
   };
 
   const handleHistory = () => {
-    navigate(`/history/${user.email}`);
+    navigate(`/history`);
   };
 
   return (

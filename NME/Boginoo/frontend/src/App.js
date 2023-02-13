@@ -21,7 +21,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/:id" element={<Redirect />} />
             <Route
-              path="/history/:userid"
+              path="/history"
               element={
                 <GuardedRoute>
                   <History />

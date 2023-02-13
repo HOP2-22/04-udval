@@ -1,4 +1,6 @@
 const URL = require("../models/URLModel");
+const jwt = require("jsonwebtoken");
+
 exports.getUrl = async (req, res) => {
   const list = await URL.find();
   res.status(200).json({ ...list });
@@ -26,7 +28,14 @@ exports.getUrlByOne = async (req, res) => {
   }
 };
 exports.getUrlByEmail = async (req, res) => {
-  const email = req.body.email;
+  const token = req.headers.token || "";
+  if (token == "") {
+    return res.status(404).json({ message: "Invalid token" });
+  }
+  const email = await jwt.decode(token, process.env.ACCESS_TOKEN_KEY)?.email;
+  if (!email) {
+    return res.status(404).json({ message: "Invalid token" });
+  }
   const page = Number(req.params.page);
   const limit = Number(req.params.limit);
 
@@ -42,6 +51,23 @@ exports.getUrlByEmail = async (req, res) => {
     res.status(200).json(data);
   } catch (error) {
     res.status(404).json({ message: error });
+  }
+};
+exports.getDataCount = async (req, res) => {
+  console.log("wtf");
+  const token = req.headers.token || "";
+  if (token == "") {
+    return res.status(404).json({ message: "Invalid token" });
+  }
+  const email = await jwt.decode(token, process.env.ACCESS_TOKEN_KEY)?.email;
+  if (!email) {
+    return res.status(404).json({ message: "Invalid token" });
+  }
+  try {
+    const countData = await URL.countDocuments({ user: email });
+    res.status(200).json(countData);
+  } catch (error) {
+    res.status(404).json({ message: "error getting data" });
   }
 };
 exports.Navigate = async (req, res) => {
