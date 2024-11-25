@@ -5,6 +5,16 @@ p {
   color: #f4e7d4;
   margin: 0;
   font-weight: 800;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.bJDwFz {
+  color: #191919 !important;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @keyframes move {
@@ -12,6 +22,31 @@ p {
     transform: translate3d(0, 0, 1px) rotate(360deg);
   }
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f4e7d4;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #191919;
+  width: 10px;
+
+  border: #f4e7d4 1px solid;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .background {
   position: fixed;
   width: 100vw;
@@ -116,6 +151,24 @@ p {
   transform-origin: -23vw 3vh;
   box-shadow: 60vmin 0 7.702864137988404vmin currentColor;
 }
+.tlCardTitle {
+  color: #191919 !important;
+  font-family: "Space Grotesk", sans-serif;
+  margin: 0;
+  font-weight: 800;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.title {
+  color: #191919;
+  font-family: "Space Grotesk", sans-serif;
+  margin: 0;
+  font-weight: 800;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
 .background span:nth-child(9) {
   color: #f4e7d4;
   top: 59%;
@@ -135,9 +188,11 @@ p {
   background-color: #f4e7d4;
 }
 .cardPicture {
-  height: 600px;
+  height: 400px;
+  width: 100%;
   opacity: 0.8;
   transition: 0.2s;
+  object-fit: cover;
 }
 .cardPicture:hover {
   opacity: 1;
@@ -146,4 +201,5 @@ p {
 
 a {
   text-decoration: none;
+  color: #f4e7d4;
 }

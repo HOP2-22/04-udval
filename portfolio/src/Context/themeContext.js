@@ -1,3 +1,4 @@
+import { createTheme } from "@mui/material";
 import React from "react";
 import { useState, createContext } from "react";
 
@@ -17,3 +18,13 @@ function ThemeContext({ children }) {
   );
 }
 export default ThemeContext;
+
+export const theme = createTheme({
+  cssVariables: true,
+  palette: {
+    primary: {
+      main: "#f4e7d4",
+      dark: "#191919",
+    },
+  },
+});

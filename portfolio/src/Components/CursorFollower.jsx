@@ -1,6 +1,7 @@
 import React from "react";
 import $ from "jquery";
 import jQuery from "jquery";
+import zIndex from "@mui/material/styles/zIndex";
 export const CursorFollower = () => {
   jQuery(document).ready(function () {
     var mouseX = 0,
@@ -16,7 +17,12 @@ export const CursorFollower = () => {
     setInterval(function () {
       xp += (mouseX - xp) / 6;
       yp += (mouseY - yp) / 6;
-      $("#circle").css({ left: xp + "px", top: yp + "px" });
+      $("#circle").css({
+        left: xp + "px",
+        top: yp + "px",
+        zIndex: 100,
+        pointerEvents: "none",
+      });
     }, 20);
   });
   return <span id="circle" className="circle"></span>;

@@ -1,6 +1,6 @@
 import { color } from "@mui/system";
 import React, { useContext } from "react";
-import { ColorModeContext } from "../Context/ThemeContext";
+import { ColorModeContext } from "../Context/themeContext";
 
 export const Header = () => {
   const { isDark, changeTheme } = useContext(ColorModeContext);
@@ -9,10 +9,7 @@ export const Header = () => {
       style={{
         zIndex: "2",
         display: "flex",
-        flexDirection: {
-          xs: "column",
-          md: "row",
-        },
+        flexDirection: "row",
         justifyContent: "space-between",
         padding: "20px",
         alignItems: "center",
@@ -23,7 +20,7 @@ export const Header = () => {
     >
       <div>
         <p>UDVAL ALTANGEREL</p>
-        <p>Student @ Pinecone Academy</p>
+        <p>Student @ National University of Mongolia</p>
       </div>
       <div
         style={{
@@ -39,13 +36,16 @@ export const Header = () => {
           }}
           style={{ color: isDark === true ? "white" : "black" }}
         >
-          Make it pop //
+          Pop //
         </p>
         <a>
-          <p>Introduction //</p>
+          <p>Bio //</p>
         </a>
         <a>
           <p>Works //</p>
+        </a>
+        <a>
+          <p>Resume //</p>
         </a>
       </div>
     </div>

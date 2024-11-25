@@ -1,37 +1,43 @@
+import React, { useEffect } from "react";
 import { Box } from "@mui/system";
 import "./App.css";
 import { Background } from "./Components/Background";
 import { CursorFollower } from "./Components/CursorFollower";
 import { Header } from "./Components/Header";
 import { Three } from "./Components/Three";
-import { Contact } from "./Sections/ContactMe";
-import { Introduction } from "./Sections/Introduction";
 import { Work } from "./Sections/Work";
+import { ThemeProvider } from "@mui/material";
+import theme from "./Context/themeContext";
+import { Footer } from "./Sections/Footer";
+import { Bio } from "./Sections/Bio";
+import { Router, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Background />
-      {/* <CursorFollower /> */}
+    <>
+      <ThemeProvider theme={theme}>
+        <Header />
+        <Background />
+        <CursorFollower />
 
-      <Box
-        sx={{
-          width: "100vw",
-          display: "flex",
-          flexDirection: "column ",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "20px",
-          boxSizing: "border-box",
-        }}
-      >
-        <Three />
-        <Introduction />
-        <Work />
-        <Contact />
-      </Box>
-    </div>
+        <Box
+          sx={{
+            width: "100vw - 60px",
+            display: "flex",
+            flexDirection: "column ",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "30px",
+            boxSizing: "border-box",
+          }}
+        >
+          <Three />
+          <Bio />
+          <Work />
+          <Footer />
+        </Box>
+      </ThemeProvider>
+    </>
   );
 }
 

@@ -10,11 +10,6 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
-    width: {
-      xs: "90vw",
-      md: "45vw",
-      lg: "30vw",
-    },
     borderRadius: "20px",
   },
   cardHeader: {
@@ -44,8 +39,11 @@ export const Work = () => {
     },
   ];
   return (
-    <div>
-      <Grid container>
+    <div style={{ minHeight: "100vh" }}>
+      <p style={{ fontSize: "3em", marginBottom: "20px" }}>
+        --- Small projects
+      </p>
+      <Grid container spacing={3}>
         {data.map((item, index) => {
           return (
             <Grid item xs={12} md={6} lg={4} key={index}>
